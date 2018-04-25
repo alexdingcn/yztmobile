@@ -1,0 +1,26 @@
+.Wdate{
+    border-color: #a7b5bc #ced9df #ced9df #a7b5bc;
+    border-style: solid;
+    border-width: 1px;
+    height:23px;
+    text-indent: 5px;
+    margin-left:5px;
+    width:100px;
+	background:#fff url(datePicker.gif) no-repeat right;
+	line-height:23px;
+	font-size:12px;
+}
+.ShopWdate{
+    width: 125px;
+    height: 24px;
+    line-height: 24px;
+    border: 1px solid #e7e7e7;
+    border-radius: 5px;
+    position: relative;
+    background:#fff url(datePicker.gif) no-repeat right;
+}
+
+.WdateFmtErr{
+	font-weight:bold;
+	color:red;
+}

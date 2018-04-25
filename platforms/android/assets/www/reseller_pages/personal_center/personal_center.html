@@ -1,0 +1,94 @@
+<html>
+
+	<head>
+		<title></title>
+		
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta name="viewport" content="initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<link rel="stylesheet" href="../../css/amazeui.css" />
+		<link rel="stylesheet" href="../../css/m_nav.css" />
+		<link rel="stylesheet" href="../../css/style.css" />
+		<script type="text/javascript" src="../../js/fastclick.js" ></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="../../js/amazeui.min.js"></script>
+		<script type="text/javascript" src="../../js/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../js/weui.min.js" ></script>
+		<script type="text/javascript" src="../../js/md5.min.js" ></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js" ></script>
+		<script type="text/javascript" src="personal_center.js"></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<a title="返回"></a>
+			</div>
+			<div class="title">我的账号</div>
+			<div class="back-ri"></div>
+		</header>
+		<div class="sys-me">
+			<div class="pic"></div>
+			<div class="a1" id="disName"></div>
+			<div class="tel" id="disPhone"></div>
+		</div>
+		<ul class="g-c-day p-t18">
+			<li class="li" id="my_account"><i class="title">我的账号</i>
+				<div class="info"><i class="i-arrow"></i></div>
+			</li>
+			<li class="li" id="modify_password"><i class="title">修改密码</i>
+				<div class="info"><i class="i-arrow"></i></div>
+			</li>
+			<!--<li class="li" id="switching_reseller"><i class="title">代理商切换</i>
+				<div class="info"><i class="i-arrow"></i></div>
+			</li>-->
+			<li class="li" id="switching_accounts" style="display: none;"><i class="title">厂商切换</i>
+				<div class="info"><i class="i-arrow"></i></div>
+			</li>
+			<li class="li" id="shipping_address"><i class="title">收货地址</i>
+				<div class="info"><i class="i-arrow"></i></div>
+			</li>
+			<li class="li" id="bound_card"><i class="title">绑定银行卡</i>
+				<div class="info"><i class="i-arrow"></i></div>
+			</li>
+		</ul>
+
+		<div class="pay-btn" style="margin-top: 1rem;">
+			<a id="exitLogin">退出登陆</a>
+		</div>
+
+		<div class="blank110"></div>
+		<nav class="m-nav" id="tabs">
+			<a href="javascript:;" class="mn-index">首页</a>
+			<a href="javascript:;" class="mn-goods">商品</a>
+			<a href="javascript:;" class=" mn-order">订单</a>
+			<!--<a href="javascript:;" class="mn-fund ">资金</a>-->
+			<a href="javascript:;" class="mn-me cur">我的</a>
+		</nav>
+		
+		<!-- 侧边栏内容 -->
+		<div id="offCanvas" class="am-offcanvas">
+			<div class="am-offcanvas-bar">
+				<div class="pop-title">
+					<h3 class="">厂商列表</h3>
+				</div>
+				<ul class="region-opt" id="addList">
+						
+				</ul>
+			</div>
+		</div>
+	</body>
+
+</html>

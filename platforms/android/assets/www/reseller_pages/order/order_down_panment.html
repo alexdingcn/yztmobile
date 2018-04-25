@@ -1,0 +1,107 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../../css/picker.css" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<!--<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>-->
+			<script type="text/javascript" src="../../libs/zepto.min.js"></script>
+		<script type="text/javascript" src="../../js/frozen.js"></script>
+		<!--<script type="text/javascript" src="../../libs/zepto.min.js"></script>-->
+		<script type="text/javascript" src="../../js/datePicker.min.js"></script>
+		<script type="text/javascript" src="../../js/weui.min.js"></script>
+		<script type="text/javascript" src="../../js/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<script type="text/javascript" src="../../libs/exif.js"></script>
+		<script type="text/javascript" src="../../js/wrapper.js"></script>
+		<script type="text/javascript" src="../../js/upload_image.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../js/httpservice1.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+		<script type="text/javascript" src="order_down_panment.js"></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<a href="javascript:;" onclick="history.go(-1)" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title">线下付款</div>
+			<div class="back-ri">
+				<a href="javascript:;" id="submit" title="修改" class="per">提交</a>
+			</div>
+		</header>
+		<!--onkeyup="value=value.replace(/^d*(?:.d{0,2})?$/,'')"-->
+		<ul class="g-c-day p-t18">
+			<li class="li"><i class="title">付款金额</i>
+				<div class="in-box"><input id="down_Amount" type="text" class="w-box" value=""></div>
+			</li>
+			<li class="li"><i class="title">账户名称</i>
+				<div class="in-box"><input id="down_Account" type="text" class="w-box" value=""></div>
+			</li>
+			<li class="li"><i class="title">付款银行</i>
+				<div class="in-box"><input id="down_Bank" type="text" class="w-box" value=""></div>
+			</li>
+			<li class="li"><i class="title">付款卡号</i>
+				<div class="in-box"><input id="down_Number" onkeyup="this.value=this.value.replace(/\D/g,'').replace(/....(?!$)/g,'$& ')" type="text" class="w-box" value=""></div>
+			</li>
+			
+			<li class="li"><i class="title">备注</i>
+				<div class="in-box"><textarea rows=1 cols=40 class="w-box" onFocus="window.activeobj=this;this.clock=setInterval(function(){activeobj.style.height=activeobj.scrollHeight+'px';},200);" onBlur="clearInterval(this.clock);" id="down_Remark"></textarea></div>
+			</li>
+			<li class="li" id="create_date"><i class="title">付款日期</i>
+				<div class="info"><label id="txtCreateDate"></label></div><i class="i-arrow"></i></li>
+		</ul>
+
+		<div class="weui-cells weui-cells_form" id="weui-imglist" style="display: none;">
+			<div class="weui-cell">
+				<div class="weui-cell__bd">
+					<div class="weui-uploader">
+						<div class="weui-uploader__hd">
+							<p class="weui-uploader__title">附件上传</p>
+						</div>
+						<div class="weui-uploader__bd">
+							<ul class="weui-uploader__files" id="uploaderFiles">
+							</ul>
+							<div class="weui-uploader__input-box">
+								<input id="uploaderInput" class="weui-uploader__input" type="file" accept="image/*" multiple>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--<div class="g-items">
+			<ul class="">
+				<li class="file-line J_CheckCity">
+					<div class="upload-area">
+						<div class="J_UploadBtn upload-btn small" style="overflow: hidden;">
+							<input class="J_FileInput file-input" type="file" capture="camera" accept="image/*">
+						</div>
+					</div>
+					<div class="desc J_Showmeonfileuploaded">
+						<h3 class="des-text title">上传图片(不超过5张)</h3>
+						<p class="des-text des">图片描述XXX</p>
+					</div>
+				</li>
+			</ul>
+		</div>-->
+
+	</body>
+
+</html>

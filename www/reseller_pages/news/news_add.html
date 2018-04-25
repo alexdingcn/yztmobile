@@ -1,0 +1,129 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/md5.min.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="../news/news_add.js" ></script>
+
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<a onclick="history.go(-1)" href="javascript:;" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title">新增消息</div>
+			<div class="back-ri"></div>
+		</header>
+
+		<ul class="g-c-day p-t18">
+			<li class="li"><i class="title fl"><i class="rcolor">*</i>信息标题</i>
+				<div class="in-box"><textarea id="Title" rows=1 cols=40 class="w-box" onFocus="window.activeobj=this;this.clock=setInterval(function(){activeobj.style.height=activeobj.scrollHeight+'px';},200);" onBlur="clearInterval(this.clock);">请输入</textarea></div>
+			</li>
+			<li class="li" id="NewsTypeBtn"><i class="title fl"><i class="rcolor">*</i>信息类别</i>
+				<div class="info">新闻<i class="i-arrow"></i></div>
+			</li>
+			<li class="li" id="NewsIsTopBtn"><i class="title fl"><i class="rcolor">*</i>是否置顶</i>
+				<div class="opt-circle fr"><i class="circle an"></i></div>
+			</li>
+			<li class="li" id="NewsIsFbBtn"><i class="title fl"><i class="rcolor">*</i>同时店铺发布</i>
+				<div class="opt-circle fr"><i class="circle an"></i></div>
+			</li>
+			<li class="li"><i class="title fl">信息内容</i>
+				<div class="addr-info"><textarea rows=1 cols=40 class="w-box2" id="Contents" onFocus="window.activeobj=this;this.clock=setInterval(function(){activeobj.style.height=activeobj.scrollHeight+'px';},200);" onBlur="clearInterval(this.clock);">请填写信息内容</textarea></div>
+			</li>
+		</ul>
+
+		<div class="goods-spec is-visible" style="display:none" id="News-List">
+			<div class="cd-popup-container pop-screen" id="ResellerListscroll">
+				<div class="pop-title">
+					<h3 class="">信息类别</h3>
+					<a href="javascript:;" class="pop-close"></a>
+				</div>
+				<ul class="p-scr-nr" id="newsType">
+					<li class="li-circle" id="1">新闻
+						<div class="opt"><i class="i-circle ok"></i></div>
+					</li>
+					<li class="li-circle" id="2">通知
+						<div class="opt"><i class="i-circle "></i></div>
+					</li>
+					<li class="li-circle" id="3">公告
+						<div class="opt"><i class="i-circle "></i></div>
+					</li>
+					<li class="li-circle" id="4">促销
+						<div class="opt"><i class="i-circle "></i></div>
+					</li>
+					<li class="li-circle" id="5">商户动态
+						<div class="opt"><i class="i-circle"></i></div>
+					</li>
+
+				</ul>
+				<footer class="footer" style="font-size:12px; display:none;text-align:center;" runat="server" id="footer"><span class="loading"></span><span>正在加载数据请稍候...</span></footer>
+				<div class="blank90"></div>
+			</div>
+		</div>
+
+		<!--隐藏域 start-->
+		<input type="hidden" id="NewsTypesHid" value="1">
+		<input type="hidden" id="IsTopHid" value="0">
+		<!--隐藏域 end-->
+
+		<a href="javascript:;" class="pop-btn zbtn" id="AddBtn">确定</a>
+		<div class="blank90"></div>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 50 * (clientWidth / 320) + 'px';
+					};
+
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+			//点击弹窗
+			jQuery(document).ready(function($) {
+				//open popup
+				$('.cd-popup-trigger').on('click', function(event) {
+					event.preventDefault();
+					$('.cd-popup').addClass('is-visible');
+				});
+
+				//close popup
+				$('.cd-popup').on('click', function(event) {
+					if($(event.target).is('.popup-close') || $(event.target).is('.cd-popup')) {
+						event.preventDefault();
+						$(this).removeClass('is-visible');
+					}
+				});
+				//close popup when clicking the esc keyboard button
+				$(document).keyup(function(event) {
+					if(event.which == '27') {
+						$('.cd-popup').removeClass('is-visible');
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

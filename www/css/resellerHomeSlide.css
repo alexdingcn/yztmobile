@@ -1,0 +1,11 @@
+.swiper-container{
+	box-sizing: border-box;
+	line-height: 0.9rem;
+    height: 0.9rem;
+}
+/*.d-notice:before{
+	top: 0.25rem;
+}*/
+.d-notice .swiper-wrapper{
+	margin-top: -0.17rem;
+}

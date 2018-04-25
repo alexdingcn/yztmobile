@@ -1,0 +1,61 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+
+		<script type="text/javascript" src="../../libs/zepto.min.js"></script>
+		<script type="text/javascript" src="../../js/frozen.js"></script>
+		<script type="text/javascript" src="../../js/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<script type="text/javascript" src="../../js/weui.min.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/httpservicePay.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="payment_recharge.js"></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<a href="javascript:;" onclick="history.go(-1)" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title">预付款充值</div>
+			<div class="back-ri"></div>
+		</header>
+
+		<ul class="g-c-day p-t18 password">
+			<li class="li"><i class="title">充值金额</i>
+				<div class="in-box"><input id="sum" name="" type="text" class="w-box" value="" placeholder="¥0.00" /></div>
+			</li>
+			<li class="li"><i class="title">备　　注</i>
+				<div class="in-box"><textarea id="remark" placeholder="请输入充值备注" rows=1 cols=40 class="w-box"></textarea></div>
+			</li>
+		</ul>
+		<div style="width: 100%;height: 0.2rem;background: #ddd;"></div>
+		<ul class="pay-quick">
+			<li class="li"><i class="i-circle" id="quick_payment"></i><i class="b1">快捷支付</i><i class="b2" id="bankName"></i><i class="i-arrow"></i></li>
+			<li class="li" style="display: none;" id="wechatPay"><i class="i-circle" id="wxPay"></i><i class="b1">微信支付</i><i class="b2">推荐安装微信5.0及以上版本的使用</i></li>
+		</ul>
+		<div class="pay-btn" id="confirm">
+			<a>确认支付</a>
+		</div>
+
+	</body>
+
+</html>

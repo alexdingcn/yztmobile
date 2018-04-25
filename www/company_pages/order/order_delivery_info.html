@@ -1,0 +1,84 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="../../js/tabs.swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="order_delivery_info.js"></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le" id="back">
+				<a href="javascript:;" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title">发货信息</div>
+			<div class="back-ri"></div>
+		</header>
+		<div class="ui-tooltips ui-tooltips-guide" id="tips" style="display: none;">
+			<div class="ui-tooltips ui-tooltips-warn">
+				<div class="ui-tooltips-cnt ui-border-b">
+					<i></i>当前订单暂无发货数据。
+				</div>
+			</div>
+		</div>
+		<!--<div class="order-bg"></div>-->
+		<ul class="order-li deliver" id="orderOutList">
+			<!--<li class="li">
+    	<div class="title">R-20160604-000001<i class="state">已签收</i></div>
+        <div class="a1">订单金额：¥20102（已付金额：¥0） </div>
+        <div class="a1">共20种商品</div>
+        <div class="a1">2016/09/28 10:31</div></a>
+        <div class="a2"><a href="" class="g-btn">作废</a><a href="" class="o-btn">物流信息</a></div>
+       
+    </li>
+    <li class="li">
+    	<div class="title">R-20160604-000001<i class="state">已签收</i></div>
+        <div class="a1">订单金额：¥20102（已付金额：¥0） </div>
+        <div class="a1">共20种商品</div>
+        <div class="a1">2016/09/28 10:31</div>
+        <div class="a2"><a href="" class="g-btn">作废</a><a href="" class="o-btn">物流信息</a></div>
+    </li>
+    <li class="li cancel">
+    	<div class="title">R-20160604-000001<i class="state">已签收</i></div>
+        <div class="a1">订单金额：¥20102（已付金额：¥0） </div>
+        <div class="a1">共20种商品</div>
+        <div class="a1">2016/09/28 10:31</div>
+        <div class="a2"><a href="" class="o-btn">物流信息</a></div>
+    </li>
+    
+  
+	<div class="blank90"></div>    -->
+		</ul>
+		<!--<a id="unSendoutDetailList" style="color: white;"><div class="deli-stay">待发货商品<i class="size" id="unSendoutNum"></i><i class="i-arrow"></i></div></a>-->
+
+		<div class="tis-n-o" style=" display:none;">对不起，无相关发货信息</div>
+		<!--搜素没有数据时-显示-->
+
+		<!--弹窗-发货单作废-->
+		<div class="pop-note " id="pop_invoice_void">
+			<div class="tis"><i>作废后，不可恢复，<br>是否确认作废？</i></div>
+			<a class="btn gb-btn" id="cancel">取消</a>
+			<a class="btn b-btn" id="confirm">确认</a>
+		</div>
+
+	</body>
+
+</html>

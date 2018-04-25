@@ -1,0 +1,72 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="utf-8">  
+    <meta name="viewport" content="width=device-width,height=device-height,target-densitydpi=high-dpi,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>  
+    <title>swiper demo</title>  
+    <link rel="stylesheet" href="css/swiper.min.css"/>  
+    <style type="text/css">  
+    body {  
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;  
+        font-size: 14px;  
+        color:#000;  
+        margin: 0;  
+        padding: 0;  
+    }  
+    img{
+    		width: auto;
+    		height: auto;
+    		width: 100%;
+    		height: 100%;
+    }
+    .swiper-container {  
+        margin: 0 auto;  
+    }  
+    .swiper-slide {  
+        text-align: center;  
+        font-size: 18px;  
+        background: #fff;  
+    }  
+    </style>  
+</head>  
+<body>  
+    <div class="swiper-container" id="swiper">  
+        <div class="swiper-wrapper">  
+        	  	<!--<div class="swiper-slide">
+            		<div style="background-image: url(images/guide/2208-5.png);background-size:100% ;width: auto;height: auto; width: 100%;height: 100%;">
+            			<button id="jumpLogin" style="color: white;margin: 0 auto; ">立即体验</button>
+            		</div>
+            </div>  -->
+           
+            <div class="swiper-slide"><img src="images/guide/2208-1.png"/></div>  
+            <div class="swiper-slide"><img src="images/guide/2208-2.png"/></div>  
+            <div class="swiper-slide"><img src="images/guide/2208-3.png"/></div>  
+            <div class="swiper-slide"><img src="images/guide/2208-4.png"/></div>  
+            <div class="swiper-slide" style="position:relative;">
+			    <img src="images/guide/2208-5.png"/>
+			    <div id="jumpLogin" class="a2" style="width: 5rem;background: #e38832;color: white;position:absolute; left:40%; bottom:11.5%;margin: 0 auto;">立即体验</div>
+			</div>
+          
+        </div>  
+          
+        <!--<div class="swiper-pagination"></div>-->  
+          
+    </div>  
+    <script src="js/fastclick.js"></script>
+    <script type="text/javascript" src="libs/zepto.min.js" ></script>
+    <script src="guide.js"></script>
+    <script src="js/swiper.min.js"></script>  
+    <script>  
+        window.onload=function(){  
+            var swiper = document.getElementById("swiper");  
+            var scale = window.screen.height / window.screen.width;  
+            swiper.style.height = document.body.clientWidth * scale + "px";  
+        }  
+        var mySwiper = new Swiper('.swiper-container',{  
+            direction: 'horizontal',  
+            loop: false,  
+            pagination: '.swiper-pagination'  
+        });      
+    </script>  
+</body>  
+</html>  

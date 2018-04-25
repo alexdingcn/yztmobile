@@ -1,0 +1,106 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+	
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../../css/picker.css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../libs/zepto.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.4.js" ></script>
+		<script type="text/javascript" src="../../js/frozen.js"></script>
+		<script type="text/javascript" src="../../js/weui.min.js"></script>
+		<script type="text/javascript" src="../../js/datePicker.min.js" ></script>
+		<script type="text/javascript" src="../../js/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="submit_order.js"></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<a onclick="history.go(-1)" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title">确定订单</div>
+			<div class="back-ri"></div>
+		</header>
+
+		<!--商品数列 start-->
+		<div class="goods-li " id="goods_list">
+			<!--<div class="li">
+    	<div class="opt"><i class="i-circle ok"></i></div>
+		<div class="pic"><a href="../商品详细.html"><img src="../../images/pic.jpg"></a></div>
+		<div class="number">P1545000009 <i class="mon">¥10,000.00</i></div>
+		<div class="title2">华硕（ASUS）碉堡台式电脑台式电台式碉堡台式电脑台式电台式</div>
+		<div class="spec">颜色：红色；尺码：165<i class="size">X3</i></div>
+		<div class="spec acolor">备注：我要最好的</div>
+    </div>
+    <div class="li">
+    	<div class="opt"><i class="i-circle ok"></i></div>
+		<div class="pic"><a href="../商品详细.html"><img src="../../images/pic.jpg"></a></div>
+		<div class="number">P1545000009 <i class="mon">¥10,000.00</i></div>
+		<div class="title2">华硕（ASUS）碉堡台式电脑台式电台式碉堡台式电脑台式电台式</div>
+		<div class="spec">颜色：红色；尺码：165<i class="size">X3</i></div>
+		<div class="spec acolor">备注：我要最好的</div>
+    </div>
+    <div class="li">
+    	<div class="opt"><i class="i-circle ok"></i></div>
+		<div class="pic"><a href="../商品详细.html"><img src="../../images/pic.jpg"></a></div>
+		<div class="number">P1545000009 <i class="mon">¥10,000.00</i></div>
+		<div class="title2">华硕（ASUS）碉堡台式电脑台式电台式碉堡台式电脑台式电台式</div>
+		<div class="spec">颜色：红色；尺码：165<i class="size">X3</i></div>
+		<div class="spec acolor">备注：我要最好的</div>
+    </div>
+    <div class="v-c-more cur"><a href="" class="acolor">更多</a></div><!-- cur效果-->
+
+		</div>
+		<div class="goods-li ">
+			<ul class="g-c-sum">
+				<!--<li><i class="title">商品总额:</i>￥5000.00</li>-->
+				<!--<li><i class="title">促销优惠:</i>￥500.00</li>-->
+				<!--<li><i class="title">促销优惠:</i><a class="i-modify"></a>￥5000.00</li>-->
+				<li><i class="title">应付总额:</i><i class=" rcolor" id="auditTotalAmount"></i></li>
+			</ul>
+		</div>
+		<!--商品数列 end-->
+
+		<ul class="g-c-day">
+			<li class="li" id="selectDate"><i class="title">交货日期</i>
+				<div class="info"><label id="delivery_date"></label></div><i class="i-arrow"></i></li>
+			<li class="li" id="select_giveMode"><i class="title">配送方式</i>
+				<div class="info"><label id="giveMode">送货</label><i class="i-arrow"></i></div>
+			</li>
+			<li class="li"><i class="title">订单备注</i>
+				<div class="in-box"><textarea rows=1 cols=40 class="w-box" onFocus="window.activeobj=this;this.clock=setInterval(function(){activeobj.style.height=activeobj.scrollHeight+'px';},200);" onBlur="clearInterval(this.clock);" id="order_remark"></textarea></div>
+			</li>
+			<li class="li" id="selectAddress"><i class="title">收货地址</i>
+				<div class="info"><i class="i-arrow" id="address"></i></div>
+			</li>
+		</ul>
+		<!--<ul class="g-c-day">
+	<li class="li"><a href=""><i class="title">开票信息</i><div class="info">普通发票，发票抬头：上海无忌...<i class="i-arrow"></i></div></a></li>
+	<li class="li"><a href=""><i class="title">发票信息</i><div class="info">票号： 12345，是否已开完：否<i class="i-arrow"></i></div></a></li>
+</ul>-->
+
+		<a id="subOrder" class="pop-btn zbtn">确认</a>
+		<div class="blank90"></div>
+
+	</body>
+
+</html>

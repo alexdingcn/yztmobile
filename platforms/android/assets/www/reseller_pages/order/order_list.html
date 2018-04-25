@@ -1,0 +1,114 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<link rel="stylesheet" href="../../css/jquery-weui.min.css" />
+		<link rel="stylesheet" href="../../css/amazeui.css" />
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../../css/m_nav.css" />
+
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="../../js/jquery-weui.min.js"></script>
+		<script type="text/javascript" src="../../js/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/amazeui.min.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="order_list.js"></script>
+	</head>
+
+	<body>
+		<div class="ui-tooltips ui-tooltips-guide" id="tips" style="display: none;">
+			<div class="ui-tooltips ui-tooltips-warn">
+				<div class="ui-tooltips-cnt ui-border-b">
+					<i></i>抱歉，当前列表未找到数据。
+				</div>
+			</div>
+		</div>
+		<div class="weui-loadmore" id="loadmore">
+			<i class="weui-loading"></i>
+			<span class="weui-loadmore__tips">正在加载订单列表</span>
+		</div>
+		<header class="header">
+			<div class="arr-le" id="Array">
+				<img src="../../images/icon-gs.png" style="width: 0.35rem;margin: 0.25rem;" />
+				<a href="#" title="排列" id="Array"></a>
+			</div>
+			<div class="title">
+				<div class="h-search" id="selectbtn"><input name="" type="text" id="selectvalue" class="t-search" value="订单号/名称"></div>
+			</div>
+			<div class="back-ri">
+				<a title="筛选" href="javascript:;" id="order_select" class="per i-t-filter"></a>
+			</div>
+		</header>
+		<ul class="order-li order-bottom">
+			<div class="ui-tooltips ui-tooltips-guide" style="margin-top: 0.8rem; display: none;" id="tips">
+				<div class="ui-tooltips ui-tooltips-warn">
+					<div class="ui-tooltips-cnt ui-border-b">
+						<i></i>当前账号没有绑定快捷支付！
+					</div>
+				</div>
+			</div>
+		</ul>
+		<!--<div class="tis-n-o" style=" display:none;">对不起，无相关订单</div>-->
+
+		<!--搜素没有数据时-显示-->
+		<!--隐藏域 start-->
+		<input type="hidden" id="CriticalOrderIDs" value="-1">
+		<input type="hidden" id="SortTypes" value="0">
+		<input type="hidden" id="Sorts" value="0">
+		<input type="hidden" id="States" value="0">
+		<input type="hidden" id="OState" value="-2">
+		<input type="hidden" id="BeginDates" value="-1">
+		<input type="hidden" id="EndDates" value="-1">
+		<input type="hidden" id="ExpressNos" value="-1">
+		<input type="hidden" id="PayStates" value="-1">
+		<input type="hidden" id="ResellerIDs" value="0">
+		<input type="hidden" id="ResellerText" value="全部">
+
+		<footer class="footer" style="display: none;font-size:12px;text-align:center;" runat="server" id="footer"></footer>
+
+		<nav class="m-nav" id="tabs">
+			<a href="javascript:;" class="mn-index">首页</a>
+			<a href="javascript:;" class="mn-goods">商品</a>
+			<a href="javascript:;" class="cur mn-order">订单</a>
+			<!--<a href="javascript:;" class="mn-fund">资金</a>-->
+			<a href="javascript:;" class="mn-me">我的</a>
+		</nav>
+
+		<!-- 侧边栏内容 -->
+		<div id="offCanvas" class="am-offcanvas">
+			<div class="am-offcanvas-bar">
+				<div class="pop-title">
+					<h3 class="">厂商列表</h3>
+				</div>
+				<ul class="region-opt" id="addList">
+				</ul>
+			</div>
+		</div>
+
+		<div style="width: 100%;height: 100%;text-align:center;padding-top: 40%;display: none;margin-top: 0.8rem;">
+			<div>
+				<img src="../../images/no-conicon.png" width="120px" />
+				<div style="text-align: center;margin-top: 0.15rem;color: gray;font-size: 0.3rem;"> 未找到订单数据。</div>
+			</div>
+		</div>
+	</body>
+
+</html>

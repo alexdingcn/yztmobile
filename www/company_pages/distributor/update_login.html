@@ -1,0 +1,68 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../libs/zepto.min.js"></script>
+		<script type="text/javascript" src="../../js/frozen.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/md5.min.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="update_login.js"></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<a href="javascript:;" id="returns" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title">登录账号</div>
+			<div class="back-ri">
+				<a href="javascript:;" id="save" title="修改" class="per">保存</a>
+			</div>
+		</header>
+
+		<ul class="g-c-day p-t18">
+			<li class="li"><i class="title">登录账号</i>
+				<div class="info2" id="UserName"></div>
+			</li>
+			<li class="li"><i class="title">姓名</i>
+				<div class="in-box"><input id="TrueName" name="" type="text" class="w-box" value=""></div>
+			</li>
+			<li class="li"><i class="title">手机</i>
+				<div class="info2" id="Phone"></div>
+			</li>
+		</ul>
+		<div class="blank110"></div>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 50 * (clientWidth / 320) + 'px';
+					};
+
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+	</body>
+
+</html>

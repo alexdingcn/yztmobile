@@ -1,0 +1,178 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="../../css/iosSelect.css">
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../libs/zepto.min.js"></script>
+		<script type="text/javascript" src="../../js/frozen.js"></script>
+		<script type="text/javascript" src="../../js/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../js/zepto.js"></script>
+		<script type="text/javascript" src="../../js/iscroll.js"></script>
+		<script type="text/javascript" src="../../js/iosSelect.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="../../js/weui.min.js"></script>
+		<script type="text/javascript" src="order_detail.js"></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<a id="back" href="javascript:;" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title">订单详情</div>
+			<!--<div class="back-ri">
+				<a title="修改" class="per" id="employ">修改</a>
+			</div>-->
+		</header>
+		<div class="ui-loading-block show" id="loading">
+			<div class="ui-loading-cnt">
+				<i class="ui-loading-bright"></i>
+				<p>正在加载中...</p>
+			</div>
+		</div>
+
+		<div class="o-v-nr">
+			<div class="title"><label id="receiptNo"></label><i class="state" id="ostate"></i></div>
+			<div class="a1" id="compName"></div>
+			<div class="a1" id="createDate"></div>
+		</div>
+		<!--商品数列 start-->
+		<div class="o-v-title" id="orderGoodsInfo">
+			<div class="fl">商品信息</div>
+			<a href="javascript:;" class="fr"><label id="productNum"></label><i class="i-arrow"></i></a>
+		</div>
+
+		<div class="goods-li">
+			<div id="goods_list"></div>
+			<ul class="g-c-sum">
+				<li><i class="title">促销优惠:</i><label id="discount_amount">null</label></li>
+				<!--<li><i class="title">返利抵扣:</i>
+					<a class="i-modify" id="img_order_rebate"></a><label id="order_rebate">null</label></li>-->
+				<li><i class="title">运费:</i>
+					<a class="i-modify" id="img_post_fee"></a><label id="post_fee">null</label></li>
+				<li><i class="title">应付总额:</i>
+					<a></a><i class=" rcolor"></i><label id="audit_total_amount">null</label></li>
+			</ul>
+		</div>
+
+		<!--商品数列 end-->
+		<ul class="g-c-day" id="ui_delivery">
+			<li class="li" id="delivery_info">
+				<a href="javascript:;"><i class="title">发货信息</i>
+					<div class="info"><i class="i-arrow"></i></div>
+				</a>
+			</li>
+		</ul>
+		<ul class="g-c-day" id="ui_payment">
+			<li class="li" id="payment_info">
+				<a href="javascript:;"><i class="title">付款信息</i>
+					<div class="info"><i class="i-arrow"></i></div>
+				</a>
+			</li>
+		</ul>
+		<ul class="g-c-day">
+			<li class="li" id="selectDate"><i class="title">交货日期</i>
+				<div class="info"> <span data-year="" data-month="" data-date="" id="showDate"></span><i class="i-arrow"></i></div>
+			</li>
+			<li class="li" id="li_giveMode"><i class="title">配送方式</i>
+				<div class="info"><label id="giveMode"></label><i class="i-arrow"></i></div>
+			</li>
+			<li class="li" id="li_order_remark"><i class="title">订单备注</i>
+				<div class="info"><label id="order_remark"></label><i class="i-arrow"></i></div>
+			</li>
+			<li class="li" id="li_address"><i class="title">收货地址</i>
+				<div class="info3"><label id="address"></label><i class="i-arrow"></i></div>
+			</li>
+			<li class="li" id="receipt_info">
+				<a class="modify-b">修改收货信息</a>
+			</li>
+		</ul>
+		<ul class="g-c-day" id="invoice_modif">
+			<li class="li" id="li_invoicing"><i class="title">开票信息</i>
+				<div class="info"><label id="invoicing"></label><i class="i-arrow"></i></div>
+			</li>
+			<li class="li" id="li_invoice"><i class="title">发票信息</i>
+				<div class="info"><label id="invoice"></label><i class="i-arrow"></i></div>
+			</li>
+			<li class="li" id="invoice_info">
+				<a class="modify-b">修改发票信息</a>
+			</li>
+		</ul>
+		<!--<ul class="g-c-day">
+	<li class="li"><a href=""><i class="title">订单附件</i><div class="info">论xxx的个人刘洋.doc(100KB)<i class="i-arrow"></i></div></a></li>
+</ul>-->
+		<!--弹窗-订单备注-->
+		<div class="pop-note" id="pop_order_remark">
+			<div class="title">订单备注
+				<a class="pop-close" id="order_remark_close"></a>
+			</div>
+			<textarea name="" cols="" rows="" class="t-box" id="order_remark_content">填写内容</textarea>
+			<a class="btn gb-btn" id="order_remark_cancel">取消</a>
+			<a class="btn b-btn" id="order_remark_confirm">确认</a>
+		</div>
+
+		<!--弹窗-修改使用返利-->
+		<div class="pop-note" id="pop_order_rebate">
+			<div class="title">修改使用返利
+				<a class="pop-close" id="order_rebate_close"></a>
+			</div>
+			<div class="li"><i class="bt">可使用返利：</i><label id="available_rebates"></label></div>
+			<div class="li"><i class="bt">本次使用: </i><input name="" type="text" class="p-box" id="this_rebate"></div>
+			<div class="blank20"></div>
+			<a class="btn gb-btn" id="order_rebate_cancel">取消</a>
+			<a class="btn b-btn" id="order_rebate_confirm">确认</a>
+		</div>
+
+		<!--弹窗-修改运费-->
+		<div class="pop-note" id="pop_post_fee">
+			<div class="title">修改运费
+				<a class="pop-close" id="post_fee_close"></a>
+			</div>
+			<div class="li"><i class="bt">运费：</i><label id="postfee">¥500.00</label></div>
+			<div class="li"><i class="bt">修改运费：</i><input name="" type="text" value="0" class="p-box" id="this_postfee"></div>
+			<div class="blank20"></div>
+			<a class="btn gb-btn" id="post_fee_cancel">取消</a>
+			<a class="btn b-btn" id="post_fee_confirm">确认</a>
+		</div>
+
+		<!--弹窗-订单作废-->
+		<div class="pop-note" id="pop_order_disuse">
+			<div class="tis"><i>作废后，不可恢复，<br>是否确认作废？</i></div>
+			<a class="btn gb-btn" id="order_disuse_cancel">取消</a>
+			<a class="btn b-btn" id="order_disuse_confirm">确认</a>
+		</div>
+		<!--弹窗-订单审核-->
+		<div class="pop-note" id="pop_order_audit">
+			<div class="tis"><i>订单审核，是否确认审核通过？<br></i></div>
+			<a class="btn gb-btn" id="order_audit_cancel">取消</a>
+			<a class="btn b-btn" id="order_audit_confirm">确认</a>
+		</div>
+
+		<div class="blank110"></div>
+		<div class="m-x-btn" id="disuse_check">
+			<a class="" id="order_check">审核</a>
+			<a class="" id="order_disuse">作废</a>
+
+		</div>
+
+	</body>
+
+</html>

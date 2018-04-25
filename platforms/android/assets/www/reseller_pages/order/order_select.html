@@ -1,0 +1,140 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<!--<link rel="stylesheet" href="../../css/jquery-weui.css" />
+		<link rel="stylesheet" href="../../css/jquery-weui.min.css" />-->
+		<link rel="stylesheet" href="../../css/picker.css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../../js/weui.min.js"></script>
+		<script type="text/javascript" src="../../js/datePicker.min.js"></script>
+		<script type="text/javascript" src="../../js/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/md5.min.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="order_select.js"></script>
+	</head>
+
+	<body style="background-color: white;">
+		<header class="header">
+			<div class="arr-le">
+				<a onclick="history.go(-1)" href="javascript:;" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title">订单筛选</div>
+			<div class="back-ri"></div>
+		</header>
+
+		<ul class="g-c-day o-screen" id="titlediv">
+			<li class="li" id="order_state"><i class="title">订单状态</i>
+				<div class="info"><label id="txtOrderState">全部</label></div><i class="i-arrow"></i></li>
+			<li class="li" id="pay_state"><i class="title">支付状态</i>
+				<div class="info"><label id="txtPayState">全部</label></div><i class="i-arrow"></i></li>
+			<!--<li class="li" id="reseller"><i class="title">经销商</i>
+				<div class="info"><label id="txtreseller">全部</label></div><i class="i-arrow"></i></li>-->
+			<li class="li" id="create_date"><i class="title">交货日期(开始日期)</i>
+				<div class="info"><label id="txtCreateDate"></label></div><i class="i-arrow"></i></li>
+			<li class="li" id="ende_date"><i class="title">交货日期(结束日期)</i>
+				<div class="info"><label id="txtEndeDate"></label></div><i class="i-arrow"></i></li>
+
+		</ul>
+
+		<!--筛选弹窗模板-->
+		<div class="goods-spec is-visible" style="display:none" id="States-List">
+			<div class="cd-popup-container pop-screen">
+				<div class="pop-title">
+					<h3 class="">订单状态</h3>
+					<a href="javascript:;" class="pop-close"></a>
+				</div>
+				<ul class="p-scr-nr">
+					<li class="li-circle" id="s-0">全部
+						<div class="opt"><i class="i-circle ok"></i></div>
+					</li>
+					<li class="li-circle" id="s-1">待审核
+						<div class="opt"><i class="i-circle "></i></div>
+					</li>
+					<li class="li-circle" id="s-2">待发货
+						<div class="opt"><i class="i-circle "></i></div>
+					</li>
+					<li class="li-circle" id="s-3">待退货
+						<div class="opt"><i class="i-circle"></i></div>
+					</li>
+					<li class="li-circle" id="s-5">已完成
+						<div class="opt"><i class="i-circle "></i></div>
+					</li>
+					<li class="li-circle" id="s-6">已作废
+						<div class="opt"><i class="i-circle "></i></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="goods-spec is-visible" style="display:none" id="Pay-List">
+			<div class="cd-popup-container pop-screen">
+				<div class="pop-title">
+					<h3 class="">支付状态</h3>
+					<a href="javascript:;" class="pop-close"></a>
+				</div>
+				<ul class="p-scr-nr">
+					<li class="li-circle" id="p-6">全部
+						<div class="opt"><i class="i-circle ok"></i></div>
+					</li>
+					<li class="li-circle" id="p-0">未支付
+						<div class="opt"><i class="i-circle "></i></div>
+					</li>
+					<li class="li-circle" id="p-1">部分支付
+						<div class="opt"><i class="i-circle "></i></div>
+					</li>
+					<li class="li-circle" id="p-2">已支付
+						<div class="opt"><i class="i-circle"></i></div>
+					</li>
+					<li class="li-circle" id="p-4">申请退款
+						<div class="opt"><i class="i-circle "></i></div>
+					</li>
+					<li class="li-circle" id="p-5">已退款
+						<div class="opt"><i class="i-circle "></i></div>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="goods-spec is-visible" style="display:none" id="Reseller-List">
+			<div class="cd-popup-container pop-screen" id="ResellerListscroll">
+				<div class="pop-title">
+					<h3 class="">经销商</h3>
+					<a href="javascript:;" class="pop-close"></a>
+				</div>
+				<ul class="p-scr-nr" id="ResellerListscrollul">
+					<li class="li-circle" id="r-0">全部
+						<div class="opt"><i class="i-circle ok"></i></div>
+					</li>
+
+				</ul>
+				<footer class="footer" style="font-size:12px; display:none;text-align:center;" runat="server" id="footer"><span class="loading"></span><span>正在加载数据请稍候...</span></footer>
+				<div class="blank90"></div>
+			</div>
+		</div>
+
+		<!--隐藏域 start-->
+		<input type="hidden" id="CriticalOrderIDs" value="-1">
+		<!--隐藏域 end-->
+
+		<div class="blank110"></div>
+		<a href="javascript:;" class="pop-btn zbtn">确认</a>
+	</body>
+
+</html>

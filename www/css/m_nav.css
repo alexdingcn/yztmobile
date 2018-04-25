@@ -1,0 +1,16 @@
+.m-nav a{
+	float: left;
+}
+.resellerTop:after{
+	 content:"";
+    display:table;
+    height:0;
+    visibility:both;
+    clear:both;
+}
+.resellerTop{
+	*zoom:1;
+}
+.resellerTop a{
+	float: left;
+}

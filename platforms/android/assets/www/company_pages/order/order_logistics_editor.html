@@ -1,0 +1,54 @@
+<html>
+<head>
+<title></title>
+<meta charset="utf-8">
+<meta name="data-spm" content="a215s">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../../css/weui.min.css" />
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<meta name="format-detection" content="telephone=no" />
+<script type="text/javascript" src="../../js/fastclick.js" ></script>
+<script type="text/javascript" src="../../js/jquery-2.1.4.js" ></script>
+<script type="text/javascript" src="../../js/weui.min.js" ></script>
+<script type="text/javascript" src="../../js/swiper.min.js" ></script>
+<script type="text/javascript" src="../../js/client.js"></script>
+<script type="text/javascript" src="../../js/xml2json.min.js" ></script>
+<script type="text/javascript" src="../../js/crypto-js.js" ></script>
+<script type="text/javascript" src="../../js/httpservice.js" ></script>
+<script type="text/javascript" src="../../cordova.js"></script>
+<script type="text/javascript" src="../../js/app.js"></script>
+<script type="text/javascript" src="order_logistics_editor.js" ></script>
+</head>
+<body>
+<header class="header">
+	<div class="arr-le"><a onclick="history.go(-1)" href="javascript:;" title="返回" class="per i-t-return"></a></div>
+    <div class="title">物流信息</div>
+    <div class="back-ri"><a  title="修改" class="per" id="employ">发货</a></div>
+</header>
+
+<ul class="g-c-day p-t18">
+	<li class="li" id="logistics_company"><a href="javascript:;"><i class="title">物流公司</i><div class="info"><label id="logistics_company_name"></label><i class="i-arrow"></i></div></a></li>
+	<li class="li"><i class="title">物流单号</i><div class="in-box"><input name="" type="text" class="w-box" value="" id="logistics_no"></div></li>
+    <li class="li"><i class="title">司机姓名</i><div class="in-box"><input name="" type="text" class="w-box" value="" id="drivers_name"></div></li>
+    <li class="li"><i class="title">司机手机</i><div class="in-box"><input name="" type="text" class="w-box" value="" id="drivers_phone"></div></li>
+    <li class="li"><i class="title">车牌号码</i><div class="in-box"><input name="" type="text" class="w-box" value="" id="license_plate_num"></div></li>
+   
+</ul>
+
+
+<!--弹窗-物流公司-->
+<div class="goods-spec is-visible" id="pop_logistics_company">
+	<div class="cd-popup-container pop-screen">
+    	<div class="pop-title"><h3 class="">物流公司</h3><a class="pop-close" id="pop_close"></a></div>
+        <ul class="p-scr-nr" id="logistics_company_list">
+        </ul>
+	</div> 
+</div>
+</body>
+</html>
+	 

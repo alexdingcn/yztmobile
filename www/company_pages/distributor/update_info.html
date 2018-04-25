@@ -1,0 +1,194 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../libs/zepto.min.js"></script>
+		<script type="text/javascript" src="../../js/frozen.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/md5.min.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../js/CitysLine/json-array-of-city.js"></script>
+		<script type="text/javascript" src="../../js/CitysLine/json-array-of-district.js"></script>
+		<script type="text/javascript" src="../../js/CitysLine/json-array-of-province.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="update_info.js"></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<a href="javascript:;" onclick="history.go(-1)" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title">基本信息</div>
+			<div class="back-ri">
+				<a href="javascript:;" id="save" title="修改" class="per">保存</a>
+			</div>
+		</header>
+		<!--经销商编辑 start-->
+		<ul class="g-c-day p-t18">
+			<li class="li"><i class="title"><i class="rcolor"></i>编码</i>
+				<div class="in-box"><input id="ResellerCode" name="" type="text" class="w-box" value=""></div>
+			</li>
+			<li class="li"><i class="title"><i class="rcolor">*</i>名称</i>
+				<div class="in-box"><input id="ResellerName" name="" type="text" class="w-box" value=""></div>
+			</li>
+			<li class="li">
+				<a href="javascript:;"><i class="title"><i class="rcolor"></i>分类</i>
+					<div class="info" id="ResellerClassify"><i class="i-arrow"></i></div>
+				</a>
+			</li>
+			<li class="li">
+				<a href="javascript:;"><i class="title"><i class="rcolor"></i>区域</i>
+					<div class="info" id="AreaName"><i class="i-arrow"></i></div>
+				</a>
+			</li>
+			<li class="li">
+				<a href="javascript:;"><i class="title"><i class="rcolor"></i>省市区</i>
+					<div class="info" id="ResellerAddr"><i class="i-arrow"></i></div>
+				</a>
+			</li>
+			<li class="li"><i class="title"><i class="rcolor">*</i>详细地址</i>
+				<div class="in-box"><input id="Address" name="" type="text" class="w-box" value=""></div>
+			</li>
+			<li class="li"><i class="title"><i class="rcolor"></i>邮编</i>
+				<div class="in-box"><input id="Zip" name="" type="text" class="w-box" value=""></div>
+			</li>
+			<li class="li"><i class="title"><i class="rcolor"></i>电话</i>
+				<div class="in-box"><input id="Tel" name="" type="text" class="w-box" value=""></div>
+			</li>
+			<li class="li"><i class="title"><i class="rcolor"></i>传真</i>
+				<div class="in-box"><input id="Fax" name="" type="text" class="w-box" value=""></div>
+			</li>
+			<li class="li"><i class="title"><i class="rcolor"></i>联系人</i>
+				<div class="in-box"><input id="Principal" name="" type="text" class="w-box" value=""></div>
+			</li>
+			<li class="li"><i class="title"><i class="rcolor"></i>手机</i>
+				<div class="in-box"><input id="Phone" name="" type="text" class="w-box" value=""></div>
+			</li>
+
+		</ul>
+
+		<!--经销商分类 start-->
+		<div class="cd-popup is-visible" style="display: none;" id="ResellerClassifyDiv">
+			<div class="cd-popup-container pop-screen">
+				<div class="pop-title">
+					<h3 class="">代理商分类</h3>
+					<a href="javascript:;" class="pop-close"></a>
+				</div>
+				<div class="pop-con">
+					<div class="cd-screen">
+						<div class="title">一级分类</div>
+						<ul class="state deep1">
+
+						</ul>
+					</div>
+					<div class="cd-screen">
+						<div class="title deep2title">二级分类</div>
+						<ul class="state deep2"></ul>
+					</div>
+					<div class="cd-screen">
+						<div class="title deep3title">三级分类</div>
+						<ul class="state deep3"></ul>
+					</div>
+				</div>
+				<a href="#" class="pop-btn" id="BtnResellerClassify">确认</a>
+			</div>
+
+		</div>
+		<!--经销商分类 end-->
+
+		<!--经销商区域 start-->
+		<div class="cd-popup is-visible" style="display: none;" id="ResellerAreaListDiv">
+			<div class="cd-popup-container pop-screen">
+				<div class="pop-title">
+					<h3 class="">代理商区域</h3>
+					<a href="javascript:;" class="pop-close"></a>
+				</div>
+				<div class="pop-con">
+					<div class="cd-screen">
+						<div class="title">一级区域</div>
+						<ul class="state deep12">
+
+						</ul>
+					</div>
+					<div class="cd-screen">
+						<div class="title deep2title2">二级分类</div>
+						<ul class="state deep22"></ul>
+					</div>
+					<div class="cd-screen">
+						<div class="title deep3title2">三级分类</div>
+						<ul class="state deep32"></ul>
+					</div>
+				</div>
+				<a href="#" class="pop-btn" id="BtnResellerAreaList">确认</a>
+			</div>
+
+		</div>
+		<!--经销商区域 end-->
+
+		<!--经销商地址 start-->
+		<div class="cd-popup is-visible" style="display:none;" id="ResellerAddDiv">
+			<div class="cd-popup-container pop-screen">
+				<div class="pop-title">
+					<h3 class="">代理商地址</h3>
+					<a href="javascript:;" class="pop-close"></a>
+				</div>
+				<div class="pop-con" id="div">
+					<div class="cd-screen pad2">
+						<ul class="state">
+							<li class="deepAdd" deep="1" code="0" id="provinces">选择省</li>
+							<li class="deepAdd" deep="2" code="0" id="citys">选择市</li>
+							<li class="deepAdd" deep="3" code="0" id="districts">选择区</li>
+						</ul>
+					</div>
+					<ul class="region-opt" id="AddList">
+
+					</ul>
+				</div>
+				<a href="#" class="pop-btn" id="BtnResellerAdd">确认</a>
+			</div>
+
+		</div>
+		<!--经销商地址 end-->
+
+		<!--隐藏域 start-->
+		<input type="hidden" id="ResellerClassifyID" value="">
+		<input type="hidden" id="AreaID" value="">
+		<input type="hidden" id="ResellerProvince" value="">
+		<input type="hidden" id="ResellerCity" value="">
+		<input type="hidden" id="ResellerArea" value="">
+		<!--隐藏域 end-->
+
+		<div class="blank110"></div>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 50 * (clientWidth / 320) + 'px';
+					};
+
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+		</script>
+	</body>
+
+</html>

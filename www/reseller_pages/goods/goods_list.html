@@ -1,0 +1,183 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="../../css/amazeui.css" />
+		<link rel="stylesheet" type="text/css" href="../../css/m_nav.css" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<link rel="stylesheet" href="../../css/jquery-weui.min.css" />
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="../../js/jquery-weui.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/amazeui.min.js"></script>
+		<script type="text/javascript" src="../../js/md5.min.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="goods_list.js"></script>
+	</head>
+
+	<body>
+
+		<header class="header">
+
+			<div class="arr-le" id="Array">
+				<img src="../../images/icon-gs.png" style="width: 0.35rem;margin: 0.25rem;" />
+				<a href="#" title="排列"></a>
+			</div>
+			<div class="title" id="CompName"></div>
+			<div class="back-ri">
+				<a id="shoppingCart" href="javascript:;" title="购物车" class="per i-t-shop"></a>
+			</div>
+		</header>
+
+		<!--选项卡 start-->
+		<div class="goods-tab">
+			<div class="a1 TabA">销量</div>
+			<div class="a2 TabA">最新</div>
+			<div class="a3 TabA">价格<span class="i-triangle down"></span></div>
+			<div class="a4 cd-popup-trigger active TabA">筛选<span class="i-screen"></span></div>
+		</div>
+		
+		<div class="ui-tooltips ui-tooltips-guide" id="tips" style="display: none;">
+			<div class="ui-tooltips ui-tooltips-warn">
+				<div class="ui-tooltips-cnt ui-border-b">
+					<i></i>抱歉，当前列表未找到数据。
+				</div>
+			</div>
+		</div>
+		<!--选项卡 end-->
+
+		<!--商品大图 start-->
+		<div class="goods-li big" id="goodsLiBig">
+			<div class="weui-loadmore">
+				<i class="weui-loading"></i>
+				<span class="weui-loadmore__tips">正在加载商品信息</span>
+			</div>
+		</div>
+		<!--商品大图 end-->
+
+		<!--筛选 start-->
+		<div class="cd-popup">
+			<div class="cd-popup-container pop-screen">
+				<div class="pop-title">
+					<h3 class="">筛选</h3>
+					<a href="#" class="pop-close"></a>
+				</div>
+				<div class="pop-con">
+					<div class="cd-sale">
+						<div class="fl">促销</div>
+						<div class="opt-circle fl" id="promotion"><i class="circle"></i></div>
+					</div>
+					<div class="cd-screen">
+						<div class="title">状态</div>
+						<ul class="state stateLi">
+							<li class="cur" id="0">全部</li>
+							<li id="1">上架</li>
+							<li id="2">下架</li>
+						</ul>
+					</div>
+					<div class="cd-screen">
+						<div class="title">价格区间（元）</div>
+						<div class="s-box">
+							<input name="MinPrices" id="MinPrices" onkeyup="MoneyYZ(this)" onblur="MoneyYZ(this)" type="text" class="box">—
+							<input name="MaxPrices" id="MaxPrices" onkeyup="MoneyYZ(this)" onblur="MoneyYZ(this)" type="text" class="box"></div>
+					</div>
+				</div>
+				<a href="#" class="pop-btn" id="BtnSelect">确认</a>
+			</div>
+
+		</div>
+		<!--筛选 end-->
+
+		<div class="goods-spec is-visible" style="display:none;">
+			<div class="cd-popup-container pop-screen">
+				<a href="" class="pop-close"></a>
+				<div class="pop-con">
+					<div class="goods-li">
+						<div class="li">
+							<div class="pic"><img src="../../images/pic.jpg"></div>
+							<div class="number">P1234567</div>
+							<div class="title">华硕（ASUS）碉堡K30DA台式电脑</div>
+							<div class="size">销量13542</div>
+							<div class="sum rcolor">¥10,000.00</div>
+						</div>
+					</div>
+					<div class="cd-screen">
+						<div class="title">状态</div>
+						<ul class="state">
+							<li class="cur">红色</li>
+							<li>褐色</li>
+							<li>黑色</li>
+						</ul>
+					</div>
+					<div class="cd-screen">
+						<div class="title">内存大小</div>
+						<ul class="state">
+							<li class="cur">4g</li>
+							<li>8g</li>
+							<li>16g</li>
+						</ul>
+					</div>
+					<div class="cd-sale">
+						<div class="fl">数量</div>
+						<div class="numbe fl">
+							<a href="" class="minus"></a><input name="" type="text" class="box" value="9">
+							<a href="" class="add"></a>
+						</div>
+						<div class="fl f12">库存300件</div>
+					</div>
+				</div>
+
+				<a href="" class="pop-btn join">加入购物车</a>
+			</div>
+
+		</div>
+
+		<!--隐藏域 start-->
+		<input type="hidden" id="CriticalProductIDs" value="-1">
+		<input type="hidden" id="Type" value="0">
+		<input type="hidden" id="Classifs" value="-1">
+		<input type="hidden" id="IsSaless" value="">
+		<input type="hidden" id="ProductStatuss" value="0">
+		<!--隐藏域 end-->
+		<div class="blank90"></div>
+		<footer class="footer" style="font-size:12px; display:none;text-align:center;" runat="server" id="footer"><span class="loading"></span><span>正在加载数据请稍候...</span></footer>
+		<div class="blank90"></div>
+		<div class="blank90"></div>
+		<nav class="m-nav" id="tabs">
+			<a href="javascript:;" class=" mn-index">首页</a>
+			<a href="javascript:;" class="mn-goods cur">商品</a>
+			<a href="javascript:;" class=" mn-order">订单</a>
+			<!--<a href="javascript:;" class="mn-fund">资金</a>-->
+			<a href="javascript:;" class="mn-me">我的</a>
+		</nav>
+
+		<!--<script type="text/javascript" src="../../js/tabs.swiper.min.js"></script>-->
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<!-- 侧边栏内容 -->
+		<div id="offCanvas" class="am-offcanvas">
+			<div class="am-offcanvas-bar">
+				<div class="pop-title">
+					<h3 class="">厂商列表</h3>
+				</div>
+				<ul class="region-opt" id="addList">
+				</ul>
+				<!--<a href="#" class="pop-btn" id="BtnResellerAdd">确认</a>-->
+			</div>
+		</div>
+	</body>
+
+</html>

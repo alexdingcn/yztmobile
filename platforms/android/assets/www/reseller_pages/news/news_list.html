@@ -1,0 +1,88 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/md5.min.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="../news/news_list.js"></script>
+	</head>
+
+	<body style="background:#f4f4f4;">
+		<header class="header">
+			<div class="arr-le">
+				<a id="back" href="javascript:;" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title">消息</div>
+			<div class="back-ri">
+				<!--<a href="news_add.html" title="add" class="per i-t-add"></a>-->
+			</div>
+		</header>
+
+		<ul class="no-news" id="NewsList">
+
+		</ul>
+
+		<!--隐藏域 start-->
+		<input type="hidden" id="CriticalOrderIDs" value="-1">
+		<!--隐藏域 end-->
+
+		<div class="blank20"></div>
+		<footer class="footer" style="font-size:12px; display:none;text-align:center;" runat="server" id="footer"><span class="loading"></span><span>正在加载数据请稍候...</span></footer>
+		<div class="blank90"></div>
+		<!--<nav class="m-nav"><a href="../home/home.html" class=" mn-index">首页</a><a href="../order/order_list.html" class="mn-order">订单</a><a href="../distributor/disserbutor_list.html" class="mn-dis">经销商</a><a href="../goods/goods_list.html" class=" mn-goods">商品</a><a href="news_list.html" class="cur mn-news">消息</a></nav>-->
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 50 * (clientWidth / 320) + 'px';
+					};
+
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+			//点击弹窗
+			jQuery(document).ready(function($) {
+				//open popup
+				$('.cd-popup-trigger').on('click', function(event) {
+					event.preventDefault();
+					$('.cd-popup').addClass('is-visible');
+				});
+
+				//close popup
+				$('.cd-popup').on('click', function(event) {
+					if($(event.target).is('.popup-close') || $(event.target).is('.cd-popup')) {
+						event.preventDefault();
+						$(this).removeClass('is-visible');
+					}
+				});
+				//close popup when clicking the esc keyboard button
+				$(document).keyup(function(event) {
+					if(event.which == '27') {
+						$('.cd-popup').removeClass('is-visible');
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

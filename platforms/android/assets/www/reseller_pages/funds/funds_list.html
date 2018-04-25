@@ -1,0 +1,79 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../../js/dropload.css" />
+			<link rel="stylesheet" href="../../css/m_nav.css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../js/jquery-2.1.4.js"></script>
+		<script type="text/javascript" src="../../js/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/httpservicePay.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../js/dropload.min.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js" ></script>
+		<script type="text/javascript" src="funds_list.js"></script>
+
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<a title="返回" class="per "></a>
+			</div>
+			<div class="title">资金</div>
+			<div class="back-ri"></div>
+		</header>
+		
+		
+		<div class="capital">
+			<a class="" id="advance_payment">
+				<div class="li cur"><i id="advancePayment"></i><i>预付款</i></div>
+			</a>
+			<a id="rebate">
+				<div class="li "><i id="Rebate"></i><i>返利金额</i></div>
+			</a>
+		</div>
+		<!--隐藏域 start-->
+		<input type="hidden" id="PrepayCriticalOrderID" value="-1">
+		<input type="hidden" id="RebateCriticalOrderID" value="-1">
+		
+		<!--隐藏域 end-->
+		<ul class="cap-record" id="prepay_ul">
+			<div class="lists" id="PrepayList">
+			</div>
+		</ul>
+		
+		<ul class="cap-record" id="rebate_ul">
+			<div class="lists" id="RebateList">
+			</div>
+		</ul>
+
+		<div class="pay-btn" id="paymentRecharge">
+			<a href="payment_recharge.html">充值</a>
+		</div>
+		<div class="blank110"></div>
+		<nav class="m-nav" id="tabs">
+			<a href="javascript:;" class="mn-index">首页</a>
+			<a href="javascript:;" class="mn-goods">商品</a>
+			<a href="javascript:;" class=" mn-order">订单</a>
+			<!--<a href="javascript:;" class="mn-fund cur">资金</a>-->
+			<a href="javascript:;" class="mn-me">我的</a>
+		</nav>
+<footer class="footer" style="font-size:12px; display:none;text-align:center;" runat="server" id="footer"><span class="loading"></span><span>正在加载数据请稍候...</span></footer>
+	</body>
+
+</html>

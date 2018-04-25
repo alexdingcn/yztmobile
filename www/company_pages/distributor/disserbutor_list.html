@@ -1,0 +1,156 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<link href="../../css/m_nav.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../libs/zepto.min.js"></script>
+		<script type="text/javascript" src="../../js/frozen.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/md5.min.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="disserbutor_list.js"></script>
+
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<!--<a href="javascript:;" title="add" class="per i-t-add"></a>-->
+			</div>
+			<div class="title">
+				<div class="h-search " id="selectBtn"><input name="selectText" id="selectText" type="text" class="t-search" placeholder="输入名称" value=""></div>
+			</div>
+			<div class="back-ri">
+				<a title="筛选" href="javascript:;" class="per i-t-filter" id="WhereBtn"></a>
+			</div>
+
+		</header>
+		<div class="ui-tooltips ui-tooltips-guide" style="margin-top: 0.8rem; display: none;" id="tips">
+			<div class="ui-tooltips ui-tooltips-warn">
+				<div class="ui-tooltips-cnt ui-border-b">
+					<i></i>抱歉，当前列表未找到数据。
+				</div>
+			</div>
+		</div>
+
+		<ul class="s-dis-li " id="ResellerListscrollul" style="margin-top: 0.8rem;">
+			<!--<div class="ui-loading-wrap">
+				<p>小陌正在努力加载中...</p>
+				<i class="ui-loading"></i>
+			</div>-->
+		</ul>
+
+		<div class="tis-n-o i-dis none">对不起，无相关经销商</div>
+		<!--搜素没有数据时-显示-->
+		<div class="blank20"></div>
+		<footer class="footer" style="font-size:12px; display:none;text-align:center;" runat="server" id="footer"><span class="loading"></span><span>正在加载数据请稍候...</span></footer>
+		<div class="blank90"></div>
+		<div class="blank20"></div>
+
+		<!--经销商筛选 start-->
+		<div class="cd-popup is-visible" style="display: none;" id="WherePage">
+			<div class="cd-popup-container pop-screen">
+				<div class="pop-title">
+					<h3 class="">筛选</h3>
+					<a href="" class="pop-close"></a>
+				</div>
+				<div class="pop-con">
+					<div class="cd-screen">
+						<div class="title">状态</div>
+						<ul class="state stateLi">
+							<li class="cur" id="1">全部</li>
+							<li id="1">启用</li>
+							<li id="0">禁用</li>
+						</ul>
+					</div>
+					<div class="cd-screen">
+						<div class="title">一级分类</div>
+						<ul class="state deep1">
+
+						</ul>
+					</div>
+					<div class="cd-screen">
+						<div class="title deep2title">二级分类</div>
+						<ul class="state deep2"></ul>
+					</div>
+					<div class="cd-screen">
+						<div class="title deep3title">三级分类</div>
+						<ul class="state deep3"></ul>
+					</div>
+				</div>
+				<a href="#" class="pop-btn" id="BtnSelect">确认</a>
+			</div>
+
+		</div>
+		<!--经销商筛选 end-->
+
+		<!--隐藏域 start-->
+		<input type="hidden" id="CriticalOrderIDs" value="-1">
+		<input type="hidden" id="IsEnableds" value="1">
+		<input type="hidden" id="ClassifyIDs" value="-1">
+		<input type="hidden" id="Searchs" value="">
+		<!--隐藏域 end-->
+
+		<nav class="m-nav" id="tabs">
+			<a href="javascript:;" class="mn-index">首页</a>
+			<a href="javascript:;" class="mn-order">订单</a>
+			<a href="javascript:;" class="mn-dis cur">代理商</a>
+			<a href="javascript:;" class="mn-goods">商品</a>
+			<a href="javascript:;" class="mn-news">消息</a>
+		</nav>
+		<script>
+			(function(doc, win) {
+				var docEl = doc.documentElement,
+					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+					recalc = function() {
+						var clientWidth = docEl.clientWidth;
+						if(!clientWidth) return;
+						docEl.style.fontSize = 50 * (clientWidth / 320) + 'px';
+					};
+
+				if(!doc.addEventListener) return;
+				win.addEventListener(resizeEvt, recalc, false);
+				doc.addEventListener('DOMContentLoaded', recalc, false);
+			})(document, window);
+			//点击弹窗
+			$(document).ready(function($) {
+				//open popup
+				$('.cd-popup-trigger').on('click', function(event) {
+					event.preventDefault();
+					$('.cd-popup').addClass('is-visible');
+				});
+
+				//close popup
+				$('.cd-popup').on('click', function(event) {
+					if($(event.target).is('.popup-close') || $(event.target).is('.cd-popup')) {
+						event.preventDefault();
+						$(this).removeClass('is-visible');
+					}
+				});
+				//close popup when clicking the esc keyboard button
+				$(document).keyup(function(event) {
+					if(event.which == '27') {
+						$('.cd-popup').removeClass('is-visible');
+					}
+				});
+			});
+		</script>
+	</body>
+
+</html>

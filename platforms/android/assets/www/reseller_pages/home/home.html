@@ -1,0 +1,112 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		
+		<link rel="stylesheet" type="text/css" href="../../css/m_nav.css" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<link rel="stylesheet" href="../../css/jquery-weui.css" />
+		<link rel="stylesheet" href="../../css/amazeui.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../js/jquery-3.2.1.min.js"></script>
+		<script type="text/javascript" src="../../js/jquery-weui.min.js"></script>
+		<script type="text/javascript" src="../../js/amazeui.min.js"></script>
+		<script type="text/javascript" src="../../js/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/md5.min.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="home.js"></script>
+	</head>
+
+	<body>
+
+		<header class="header">
+			<div class="arr-le">
+				<a id="newsList" href="javascript:;" title="add" class="per i-t-news"><i></i></a>
+			</div>
+			<div class="title">
+				<!--<div class="h-search" id="selectBtn"><input id="selectText" name="" type="text" class="t-search" placeholder="搜索商品" value=""></div>-->
+			</div>
+			<div class="back-ri">
+				<a id="shoppingCart" href="javascript:;" title="购物车" class="per i-t-shop"><i></i></a>
+			</div>
+		</header>
+
+		<nav class="d-m-menu resellerTop">
+			<a id="goodsList" href="javascript:;" class="d-m-sale">全部商品</a>
+			<a id="goodsCollection" href="javascript:;" class="d-m-goods">收藏商品</a>
+			<a id="orderList" href="javascript:;" class="d-m-order ">订单处理</a>
+			<a id="paymentRecharge" href="javascript:;" class="d-m-pay">我要支付</a>
+		</nav>
+		<div class="d-notice swiper-container">
+			<ul class="swiper-wrapper">
+
+			</ul>
+		</div>
+
+		<!--商品数列 start-->
+		<div class="o-v-title">
+			<div class="fl">商品信息</div><div class="fr"><img src="../../images/icon-gs-gray.png" id = 'Array' style="width: 0.35rem;margin-top: 0.2rem;" /></div>
+		</div>
+
+		<div class="goods-li big" id="goodsLiBig">
+			<div class="weui-loadmore">
+				<i class="weui-loading"></i>
+				<span class="weui-loadmore__tips">正在加载商品信息</span>
+			</div>
+		</div>
+		<!--商品数列 end-->
+
+		<nav class="m-nav">
+			<a href="javascript:;" class="cur mn-index">首页</a>
+			<a href="javascript:;" class="mn-goods">商品</a>
+			<a href="javascript:;" class=" mn-order">订单</a>
+			<a href="javascript:;" class="mn-fund">资金</a>
+			<a href="javascript:;" class="mn-me">我的</a>
+		</nav>
+
+		<!--隐藏域 start-->
+		<input type="hidden" id="CriticalProductIDs" value="-1">
+		<input type="hidden" id="selectTextHid" value="0714">
+		<!--隐藏域 end-->
+		<div class="blank90"></div>
+		<footer class="footer" style="font-size:12px; display:none;text-align:center;" runat="server" id="footer"><span class="loading"></span><span>正在加载数据请稍候...</span></footer>
+		<div class="blank90"></div>
+		<nav class="m-nav" id="tabs">
+			<a href="javascript:;" class="cur mn-index">首页</a>
+			<a href="javascript:;" class="mn-goods">商品</a>
+			<a href="javascript:;" class="mn-order">订单</a>
+			<!--<a href="javascript:;" class="mn-fund">资金</a>-->
+			<a href="javascript:;" class="mn-me">我的</a>
+		</nav>
+		<div class="blank90"></div>
+
+		<!-- 侧边栏内容 -->
+		<div id="offCanvas" class="am-offcanvas">
+			<div class="am-offcanvas-bar">
+				<div class="pop-title">
+					<h3 class="">厂商列表</h3>
+				</div>
+				<ul class="region-opt" id="addList">
+						
+				</ul>
+			</div>
+		</div>
+
+	</body>
+
+</html>

@@ -1,0 +1,89 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<script type="text/javascript" src="../../js/fastclick.js" ></script>
+		<script type="text/javascript" src="../../libs/zepto.min.js" ></script>
+		<script type="text/javascript" src="../../js/frozen.js" ></script>
+		<script type="text/javascript" src="../../js/swiper.min.js" ></script>
+		<script type="text/javascript" src="../../js/client.js" ></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/md5.min.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/httpservice.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="../../js/JqueryWeui/jquery-weui.min.js" ></script>
+		<script type="text/javascript" src="../../js/weui.min.js" ></script>
+		<script type="text/javascript" src="goods_detail.js" ></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<a onclick="history.go(-1)" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title" id="CompName"></div>
+			<div class="back-ri">
+				<a id="shoppingCart" href="javascript:;" title="购物车" class="per i-t-shop"></a>
+			</div>
+		</header>
+		<!--商品标题 start-->
+		<div class="v-goods-p" id="GoodsImg"></div>
+		<div class="v-goods-t">
+			<div class="title" id="GoodsName"></div>
+			<div class="view acolor" id="BarCode"></div>
+			<div class="price">价格：<i class=" rcolor" id="TinkerPrice"></i></div>
+		</div>
+		<!--商品标题 end-->
+
+		<!--商品规格 start-->
+		<div class="v-goods-s">
+			<div class="cd-screen">
+				<div class="title sku1title"></div>
+				<ul class="state sku1 skuul"></ul>
+			</div>
+			<div class="cd-screen">
+				<div class="title sku2title"></div>
+				<ul class="state sku2 skuul"></ul>
+			</div>
+			<div class="cd-screen">
+				<div class="title sku3title"></div>
+				<ul class="state sku3 skuul"></ul>
+			</div>
+			<div class="cd-sale">
+				<div class="fl">数量</div>
+				<div class="numbe fl">
+					<a href="javascript:;" class="minus"></a><input name="txtGoodsNum" id="txtGoodsNum" onkeyup="IntYZ(this)" onblur="IntYZ(this)" type="text" class="box" value="1">
+					<a href="javascript:;" class="add"></a>
+				</div>
+				<div class="fl f12">库存<span id="Inventory"></span>件</div>
+			</div>
+		</div>
+		<!--商品规格 end-->
+		<div class="v-goods-b">商品介绍</div>
+		<div class="v-goods-n" id="Details">
+
+		</div>
+		<div class="blank90"></div>
+		<div class="v-goods-btn"><a class="collect " id="isCollect">加入收藏</a><!--<a href="" class="collect ok">已收藏</a>--><a class="join">加入购物车</a></div>
+
+		<!--隐藏域 start-->
+		<input type="hidden" id="SKUID" value="-1">
+
+		<!--隐藏域 end-->
+
+	</body>
+
+</html>

@@ -1,0 +1,69 @@
+<html>
+
+	<head>
+		<title></title>
+		<meta charset="utf-8">
+		<meta name="data-spm" content="a215s">
+		<meta content="yes" name="apple-mobile-web-app-capable">
+		<meta content="yes" name="apple-touch-fullscreen">
+		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+		<meta http-equiv="Pragma" content="no-cache" />
+		<meta http-equiv="Expires" content="0" />
+		<link rel="stylesheet" href="../../css/frozen.css" />
+		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+		<link rel="stylesheet" href="../../css/weui.min.css" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<meta name="format-detection" content="telephone=no" />
+		<script type="text/javascript" src="../../js/fastclick.js"></script>
+		<script type="text/javascript" src="../../libs/zepto.min.js"></script>
+		<script type="text/javascript" src="../../js/frozen.js"></script>
+		<script type="text/javascript" src="../../js/swiper.min.js"></script>
+		<script type="text/javascript" src="../../js/client.js"></script>
+		<script type="text/javascript" src="../../js/weui.min.js"></script>
+		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+		<script type="text/javascript" src="../../js/httpservicePay.js"></script>
+		<script type="text/javascript" src="../../cordova.js"></script>
+		<script type="text/javascript" src="../../js/app.js"></script>
+		<script type="text/javascript" src="order_pay.js"></script>
+	</head>
+
+	<body>
+		<header class="header">
+			<div class="arr-le">
+				<a onclick="history.go(-1)" title="返回" class="per i-t-return"></a>
+			</div>
+			<div class="title">支付</div>
+			<div class="back-ri"></div>
+		</header>
+
+		<div class="pay-a1">本次支付金额（可修改）
+			<div><input id="amount_paid" name="" class="box" value="0.00"></div>
+		</div>
+		<ul class="pay-a2">
+			<li class="">订单总金额<i class="size" id="total_amount">￥0.00</i></li>
+			<li class="">已支付金额<i class="size" id="paid_amount">￥0.00</i></li>
+			<li class="">支付手续费<i class="size" id="fee">￥0.00</i></li>
+		</ul>
+
+		<ul class="pay-quick">
+			<!--<li class="li"><i class="i-circle" id="wallet_payment"></i><i class="b1">钱包余额</i><i class="b2" id="ava_amount">可用余额：0.00元</i><input type="text" value="0.00" class="box" id="wallet_pay_amount"></li>-->
+			<li class="li"><i class="i-circle" id="quick_payment"></i><i class="b1">快捷支付</i><i class="b2" id="bankName"></i><i class="i-arrow"></i></li>
+			<!--<li class="li" style="display: none;" id="wechatPay"><i class="i-circle" id="wxPay"></i><i class="b1">微信支付</i><i class="b2">推荐安装微信5.0及以上版本的使用</i></li>-->
+			<li class="li"><i class="i-circle" id="down_payment"></i><i class="b1">线下支付</i><i class="b2" id=""></i><i class="i-arrow"></i></li> 
+		</ul>
+		<div class="pay-fillIn"><input id="payment_password" name="" type="password" value="" placeholder="请输入支付密码" class="box"></div>
+		<div class="pay-btn" id="subPayment">
+			<a>确认支付</a>
+		</div>
+
+		<div id="loading" class="ui-loading-block">
+			<div class="ui-loading-cnt">
+				<i class="ui-loading-bright"></i>
+				<p>加载中...</p>
+			</div>
+		</div>
+
+	</body>
+
+</html>
