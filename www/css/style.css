@@ -12,7 +12,10 @@ html, body,textarea,input{font-family:'MicrosoftYaHei',"微软雅黑"; font-size
 body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td, hr, button, article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section,ul,li,div {margin: 0;padding: 0;font-weight:normal;}i{ font-style:normal;}ul,li{ list-style:none;}
 input, select, textarea {font-size: 100%;-webkit-tap-highlight-color: rgba(0,0,0,0);-webkit-appearance: none;border: 0;border-radius: 0;}table {border-collapse: collapse;border-spacing: 0}
 :after,:before {box-sizing: inherit;border-style: solid;border-width: 0;}
-a:link {color: #666; text-decoration:none;}a:visited {color: #666;text-decoration:none;}a:hover {color: #666; text-decoration:none;}a:active· {color: #666;}
+a:link {color: #666; text-decoration:none;}
+a:visited {color: #666;text-decoration:none;}
+a:hover { text-decoration:none;}
+a:active {color: #666;}
 .fl{ float:left;}.fr{ float:right;}
 .rcolor{ color:red;}.ycolor{ color:#ff6600;}.bcolor,a.bcolor{ color:#008be3;}.gcolor9{ color:#999;}.acolor,a.acolor{ color:#aaa;}.gcolor3{ color:#333}
 /*图标字体*/
@@ -31,11 +34,12 @@ body{ padding-top:0.8rem;}
 .orange-btn-bg{background:orange;color:white;}
 .blue-btn-bg{ background: #008be3; color:white;}
 .hide { display: none; }
-.margin-top1 { margin-top:1.5rem; }
+.margin-top1 { margin-top:1rem; }
+.margin-top15 { margin-top:1.5rem; }
 .padding-10px { padding:10px; }
 .weui-btn_primary { background-color:#008ce3; }
 .weui-btn_primary:not(.weui-btn_disabled):active { background-color: #489cde }
-.weui-btn_disabled.weui-btn_primary { background-color: #489cde; }
+.weui-btn_disabled.weui-btn_primary { background-color: #7fb4dc; }
 /*公共样式-header*/
 .header{ height:0.8rem; line-height:0.8rem; width:100%; background:#008be3; font-size:0.3rem; color:#fff; display:-moz-box; /* Firefox */display:-webkit-box; /* Safari and Chrome */display:box; position:fixed; top:0; left:0; right:0; z-index:998;}
 .header .title{ width:60%; text-align:center; position:relative; white-space: nowrap;}
@@ -132,27 +136,13 @@ a.mn-fund:before{ content:"\e930"; top:0.13rem; margin-left:-0.2rem; font-size:0
 .m-list .i-goods:before{content:"\e923"; color:purple; }
 
 /*登录*/
-/*.login-pic { position:absolute; top:1.2rem; text-align:center; left:0; right:0.1rem;}
-.login-pic img{ width:4.4rem;}
-.login-list{ padding:0rem 0.2rem 0 0.2rem; position:absolute; left:0.2rem; right:0.2rem; top:3.4rem;}
-.login-list .li{ border-bottom:1px solid #ddd; padding:0.1rem 0 0.1rem 0.9rem; position:relative;}
-.login-list .box{ height:0.8rem; line-height:0.8rem; width:100%;font-family:'MicrosoftYaHei',"微软雅黑"; background:none; color:#fff; font-size:0.24rem; }
-.account:before,.Password:before,.login-code:before{content:""; background:url(../images/login-bg.png) no-repeat;   background-size: 1.3rem 0.56rem; display:inline-block; position:absolute;}
-.account:before{ background-position:-0.0rem 0rem; width:0.35rem; height:0.48rem; top:0.26rem; left:0.2rem;}
-.Password:before{  background-position:-0.44rem 0rem; width:0.30rem; height:0.48rem; top:0.26rem; left:0.21rem;}
-.login-code:before{ background-position:-0.86rem 0rem; width:0.33rem; height:0.41rem; top:0.3rem; left:0.21rem;}
-.login-list .b-btn{ display:block; height:0.8rem; line-height:0.8rem; border-radius:0.1rem; margin-top:0.3rem; text-align:center; font-size:0.3rem; background:rgba(0,3,53,0.58); color:#fff;}
-.login-code .code img{ width:1.2rem; height:0.51rem; }
-.login-code .code{width:1.2rem; height:0.51rem;position:absolute; top:0.25rem; right:0.2rem;}
-.login-list .tis{ padding:0.25rem 0 0 0; text-align:center;  position:relative; color:#fff;}*/
-
-/*登录*/
 .logo { text-align:center; }
 .logo img{ width:3.4rem;}
 .login{ padding:0.5rem; }
 .login li{border-bottom: solid 1px #e3e3e3; padding-left:0.6rem; position: relative;}
 .login .box{ height:1rem; line-height:1rem; width:100%;font-family:'MicrosoftYaHei',"微软雅黑";font-size:0.3rem; }
-.login_account:before,.login_password:before,.login_code:before{content: ""; background: url(../images/logo_icon.png) no-repeat; background-size: 0.35rem 1.08rem; display: inline-block; position: absolute; left: 0rem;}
+.login_account:before,.login_password:before,.login_code:before,.login_company:before{content: ""; background: url(../images/logo_icon.png) no-repeat; background-size: 0.35rem 1.08rem; display: inline-block; position: absolute; left: 0rem;}
+.login_company:before{background-position: 0rem 0rem; width: 0.35rem; height: 0.38rem; top: 0.3rem; }
 .login_account:before{background-position: 0rem 0rem; width: 0.35rem; height: 0.38rem; top: 0.3rem; }
 .login_password:before{background-position: 0rem -0.39rem; width: 0.35rem; height: 0.38rem; top: 0.3rem; }
 .login_code:before{background-position: 0rem -0.78rem; width: 0.35rem; height: 0.32rem; top: 0.35rem; }

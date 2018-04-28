@@ -20,6 +20,7 @@ $(function() {
 		document.addEventListener("jpush.openNotification", onOpenNotification, false);
 	}
 	var roleDetail = localStorage.getItem('$login_role') || "";
+	var usersList = JSON.parse(localStorage.getItem('$usersList') || "");
 	if (roleDetail === null || roleDetail === '') {
 		window.location.href = '../login/login.html';
 		return;

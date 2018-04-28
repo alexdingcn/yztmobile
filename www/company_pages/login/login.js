@@ -72,6 +72,10 @@ function showRoleList(userList) {
 }
 
 function selectCallback(position, userList) {
+    if (!userList || userList.length <= position) {
+        window.location.href = '../../guide.html';
+        return;
+    }
     //将登陆角色保存到本地
     localStorage.setItem('$login_role', JSON.stringify(userList[position]));
     var wx_OpenID = localStorage.getItem('$wx_openid')
