@@ -157,6 +157,7 @@ function DataGoodsBind() {
 	post('CompanyProductSearch', datastr, function(response) {
 		$('.ui-loading-wrap').hide();
 		if(response.Result == "T" && response.Description == "返回成功") {
+			$("#CompName").html(response.CompanyName); 
 			$("#footer").hide(); //隐藏加载中
 			$(window).bind("scroll", LoadData); //重新绑定下拉事件
 			var strbig = "";
@@ -169,7 +170,7 @@ function DataGoodsBind() {
 				if(value.ProductPicUrlList.length > 0)
 					imgurl = value.ProductPicUrlList[0].PicUrl
 				strbig += '<div class="li">' +
-					'<a href="goods_detail.html?random=' + Math.random() + "&id=" + value.ProductID + '">' +
+					'<a href="goods_detail.html?random=' + Math.random() + "&id=" + value.ProductID + "&compid=" + response.CompanyID + '">' +
 					'<div class="pic"><img  src="' + imgurl + '"></div>' +
 					' <div class="number">' + value.ProductCode + '</div>' +
 					'<div class="title">' + value.ProductName + '</div>' +
@@ -224,9 +225,14 @@ function getDate() {
 	var Types = $("#Type").val(); //搜索类型0:最新1：销量 2:价格从高到低 3:价格从低到高
 	var roleDetail = localStorage.getItem('$login_role') || "[]";
 	var usersObj = JSON.parse(roleDetail);
-	$("#CompName").html(usersObj.CompName) //公司名称
+	if (usersObj.CompName) {
+		$("#CompName").html(usersObj.CompName) //公司名称
+	} else {
+		$('#tabs').remove();
+	}
+	
 	var DataJson = {
-		CompID: usersObj.CompID, //核心企业ID
+		CompID: usersObj.CompID || getUrlParameter("compid"), //核心企业ID
 		Condition: Conditions,
 		CriticalProductID: CriticalProductIDs,
 		Filter: {
@@ -362,7 +368,7 @@ function DataGtype() {
 	var DataJson = {
 		UserID: usersObj.UserID,
 		ResellerID: "0",
-		CompanyID: usersObj.CompID
+		CompanyID: usersObj.CompID || getUrlParameter("compid")
 	}
 	var datastr = JSON.stringify(DataJson);
 	post('GetResellerProductClassifyList', datastr, function(response) {

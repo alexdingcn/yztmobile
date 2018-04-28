@@ -20,9 +20,10 @@ $(function() {
 		document.addEventListener("jpush.openNotification", onOpenNotification, false);
 	}
 	var roleDetail = localStorage.getItem('$login_role') || "";
-	var usersList = JSON.parse(localStorage.getItem('$usersList') || "");
-	if(roleDetail === null || roleDetail === '')
-		window.open('../login/login.html')
+	if (roleDetail === null || roleDetail === '') {
+		window.location.href = '../login/login.html';
+		return;
+	}
 	usersObj = JSON.parse(roleDetail);
 	initData(usersObj); //初始化数据
 

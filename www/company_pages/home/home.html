@@ -1,124 +1,226 @@
 <html>
 
-	<head>
-		<title></title>
-		<meta charset="utf-8">
-		<meta name="data-spm" content="a215s">
-		<meta content="yes" name="apple-mobile-web-app-capable">
-		<meta content="yes" name="apple-touch-fullscreen">
-		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-		<meta http-equiv="Pragma" content="no-cache" />
-		<meta http-equiv="Expires" content="0" />
-		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
-		<link rel="stylesheet" href="../../css/weui.min.css" />
-		<link rel="stylesheet" href="../../css/m_nav.css" />
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<script type="text/javascript" src="../../js/fastclick.js"></script>
-		<script type="text/javascript" src="../../js/jquery-2.1.4.js"></script>
-		<script type="text/javascript" src="../../js/tabs.swiper.min.js"></script>
-		<script type="text/javascript" src="../../js/client.js"></script>
+<head>
+	<title>厂家首页</title>
+	<meta charset="utf-8">
+	<meta name="data-spm" content="a215s">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../../css/weui.min.css" />
+	<link rel="stylesheet" href="../../css/m_nav.css" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<script type="text/javascript" src="../../js/fastclick.js"></script>
+	<script type="text/javascript" src="../../js/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="../../js/tabs.swiper.min.js"></script>
+	<script type="text/javascript" src="../../js/client.js"></script>
 
-		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
-		<script type="text/javascript" src="../../js/crypto-js.js"></script>
+	<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+	<script type="text/javascript" src="../../js/crypto-js.js"></script>
 
-		<script type="text/javascript" src="../../js/echarts.min.js"></script>
-		<script type="text/javascript" src="../../js/weui.min.js"></script>
-		<script type="text/javascript" src="../../js/md5.min.js" ></script>
-		<script type="text/javascript" src="../../cordova.js"></script>
-		<script type="text/javascript" src="../../js/httpservice.js"></script>
-		<script type="text/javascript" src="../../js/app.js"></script>
-		
-		<script type="text/javascript" src="home.js"></script>
-	</head>
+	<script type="text/javascript" src="../../js/echarts.min.js"></script>
+	<script type="text/javascript" src="../../js/weui.min.js"></script>
+	<script type="text/javascript" src="../../js/md5.min.js"></script>
+	<script type="text/javascript" src="../../cordova.js"></script>
+	<script type="text/javascript" src="../../js/httpservice.js"></script>
+	<script type="text/javascript" src="../../js/app.js"></script>
 
-	<body>
+	<script type="text/javascript" src="home.js"></script>
+</head>
 
-		<header class="header">
-			<div class="weui-loadmore" id="progressBar">
-				<i class="weui-loading"></i>
-				<span class="weui-loadmore__tips">正在加载</span>
+<body ontouchstart class="no-padding grey-bg">
+
+	<div class="weui-tab">
+		<div class="weui-tab__panel">
+			<header class="header">
+				<div class="weui-loadmore" id="progressBar">
+					<i class="weui-loading"></i>
+					<span class="weui-loadmore__tips">正在加载</span>
+				</div>
+				<div class="arr-le">
+					<!--<a title="消息" class="per i-t-news tis"></a>-->
+				</div>
+				<div class="title" id="comp_title"></div>
+				<div class="back-ri">
+					<div id="setting" title="设置" class="per i-t-set"></div>
+				</div>
+			</header>
+
+			<!--<div class="m-chart"><div class="fl ">销售</div><div class="fr menu"><i class="cur">本月</i><i>半年</i><i>全年</i></div></div>-->
+			<div style="background:#008be3;margin-top:0.8rem;">
+				<div class="m-chart">
+					<div class="fl">销售</div>
+					<div class="fr menu" id="wrap">
+						<i class="cur" id="this_month">本月</i>
+						<i id="half_a_year">半年</i>
+						<i id="the_whole_year">全年</i>
+					</div>
+				</div>
+				<div class="" id="linechart" style="height:3.8rem; background:#008be3; position: relative;"></div>
 			</div>
-			<div class="arr-le">
-				<!--<a title="消息" class="per i-t-news tis"></a>-->
-			</div>
-			<div class="title" id="comp_title"></div>
-			<div class="back-ri">
-				<div id="setting" title="设置" class="per i-t-set"></div>
-			</div>
-		</header>
 
-		<!--<div class="m-chart"><div class="fl ">销售</div><div class="fr menu"><i class="cur">本月</i><i>半年</i><i>全年</i></div></div>-->
-		<div style="background:#008be3;">
-			<div class="m-chart">
-				<div class="fl">销售</div>
-				<div class="fr menu" id="wrap"><i class="cur" id="this_month">本月</i><i id="half_a_year">半年</i><i id="the_whole_year">全年</i></div>
+			<!--数据列表 start-->
+			<div class="tabs whiBg">
+				<div class="active">订货</div>
+				<!--<div>退货</div>-->
+				<div>收款</div>
 			</div>
-			<div class="" id="linechart" style="height:3.8rem; background:#008be3; position: relative;"></div>
+			<div class="swiper-container whiBg">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide m-goods">
+						<div class="day">
+							<i class="">今天</i>
+							<i class="ycolor" id="order_DayMoney">¥1000</i>
+							<i class="" id="order_DayNumb">1笔</i>
+						</div>
+						<div class="day">
+							<i class="" id="">本周</i>
+							<i class="ycolor" id="order_WeekMoney">¥1000</i>
+							<i class="" id="order_WeekNumb">1笔</i>
+						</div>
+						<div class="day">
+							<i class="">本月</i>
+							<i class="ycolor" id="order_MonthMoney">¥1000</i>
+							<i class="" id="order_MonthNumb">1笔</i>
+						</div>
+					</div>
+					<div class="swiper-slide m-goods">
+						<div class="day">
+							<i class="">今天</i>
+							<i class="ycolor" id="retrun_DayMoney">¥100</i>
+							<i class="" id="retrun_DayNumb">1笔</i>
+						</div>
+						<div class="day">
+							<i class="">本周</i>
+							<i class="ycolor" id="retrun_WeekMoney">¥100</i>
+							<i class="" id="retrun_WeekNumb">1笔</i>
+						</div>
+						<div class="day">
+							<i class="">本月</i>
+							<i class="ycolor" id="retrun_MonthMoney">¥100</i>
+							<i class="" id="retrun_MonthNumb">1笔</i>
+						</div>
+					</div>
+					<div class="swiper-slide m-goods">
+						<div class="day">
+							<i class="">今天</i>
+							<i class="ycolor" id="receive_DayMoney">¥10000</i>
+							<i class="" id="receive_DayNumb">1笔</i>
+						</div>
+						<div class="day">
+							<i class="">本周</i>
+							<i class="ycolor" id="receive_WeekMoney">¥10000</i>
+							<i class="" id="receive_WeekNumb">1笔</i>
+						</div>
+						<div class="day">
+							<i class="">本月</i>
+							<i class="ycolor" id="receive_MonthMoney">¥10000</i>
+							<i class="" id="receive_MonthNumb">1笔</i>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="weui-cells__title">报表</div>
+			<div class="weui-cells m-list">
+				<a class="weui-cell weui-cell_access" href="../order/order_list.html?type=1">
+					<div class="weui-cell__hd">
+						<i class="title i-order"></i>
+					</div>
+					<div class="weui-cell__bd">
+						<p>待审核订单</p>
+					</div>
+					<div class="weui-cell__ft">
+						<span id="orderAudit">0笔</span>
+					</div>
+				</a>
+				<a class="weui-cell weui-cell_access" href="../order/order_list.html?type=2">
+					<div class="weui-cell__hd">
+						<i class="title i-deliver"></i>
+					</div>
+					<div class="weui-cell__bd">
+						<p>待发货订单</p>
+					</div>
+					<div class="weui-cell__ft">
+						<span id="orderSend">0笔</span>
+					</div>
+				</a>
+				<a class="weui-cell weui-cell_access" href="../order/order_by_distributor.html">
+					<div class="weui-cell__hd">
+						<i class="title i-dealer"></i>
+					</div>
+					<div class="weui-cell__bd">
+						<p>代理商销售情况汇总</p>
+					</div>
+					<div class="weui-cell__ft">
+					</div>
+				</a>
+				<a class="weui-cell weui-cell_access" href="../order/order_by_goods.html">
+					<div class="weui-cell__hd">
+						<i class="title i-goods"></i>
+					</div>
+					<div class="weui-cell__bd">
+						<p>商品销售情况汇总</p>
+					</div>
+					<div class="weui-cell__ft">
+					</div>
+				</a>
+				<!--
+								<a class="weui-cell weui-cell_access" href="../order/order_list.html?type=3">
+									<div class="weui-cell__hd">
+										<i class="title i-deliver"></i>
+									</div>
+									<div class="weui-cell__bd">
+										<p>待审核退货单</p>
+									</div>
+									<div class="weui-cell__ft">
+										<span id="orderReturnAudit">0笔</span>
+									</div>
+								</a>
+								<a class="weui-cell weui-cell_access" href="../order/order_list.html?type=2">
+									<div class="weui-cell__hd">
+										<i class="title i-deliver"></i>
+									</div>
+									<div class="weui-cell__bd">
+										<p>待审核经销商</p>
+									</div>
+									<div class="weui-cell__ft">
+										<span id="resellerAudit">0笔</span>
+									</div>
+								</a>
+								-->
+			</div>
+			<div class="weui-footer" style="padding-top:20px;padding-bottom:20px">
+				<p class="weui-footer__links">
+					<span class="weui-footer__link">医械第三方综合服务平台</span>
+				</p>
+				<p class="weui-footer__text">Copyright © 2017-2018 医站通</p>
+			</div>
 		</div>
 
-		<!--数据列表 start-->
-		<div class="tabs">
-			<div class="active">订货</div>
-			<!--<div>退货</div>-->
-			<div>收款</div>
-		</div>
-		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide m-goods">
-					<div class="day"><i class="">今天</i><i class="ycolor" id="order_DayMoney">¥1000</i><i class="" id="order_DayNumb">1笔</i></div>
-					<div class="day"><i class="" id="">本周</i><i class="ycolor" id="order_WeekMoney">¥1000</i><i class="" id="order_WeekNumb">1笔</i></div>
-					<div class="day"><i class="">本月</i><i class="ycolor" id="order_MonthMoney">¥1000</i><i class="" id="order_MonthNumb">1笔</i></div>
-				</div>
-				<div class="swiper-slide m-goods">
-					<div class="day"><i class="">今天</i><i class="ycolor" id="retrun_DayMoney">¥100</i><i class="" id="retrun_DayNumb">1笔</i></div>
-					<div class="day"><i class="">本周</i><i class="ycolor" id="retrun_WeekMoney">¥100</i><i class="" id="retrun_WeekNumb">1笔</i></div>
-					<div class="day"><i class="">本月</i><i class="ycolor" id="retrun_MonthMoney">¥100</i><i class="" id="retrun_MonthNumb">1笔</i></div>
-				</div>
-				<div class="swiper-slide m-goods">
-					<div class="day"><i class="">今天</i><i class="ycolor" id="receive_DayMoney">¥10000</i><i class="" id="receive_DayNumb">1笔</i></div>
-					<div class="day"><i class="">本周</i><i class="ycolor" id="receive_WeekMoney">¥10000</i><i class="" id="receive_WeekNumb">1笔</i></div>
-					<div class="day"><i class="">本月</i><i class="ycolor" id="receive_MonthMoney">¥10000</i><i class="" id="receive_MonthNumb">1笔</i></div>
-				</div>
-			</div>
-		</div>
-		<!--数据列表 end-->
-		<div class="m-list">
-			<a href="../order/order_list.html?type=1">
-				<div class="title i-order">待审核订单</div>
-				<div class="size" id="orderAudit">0笔</div>
+
+		<div class="weui-tabbar m-nav">
+			<a href="javascript:;" class="weui-tabbar__item weui-bar__item_on cur mn-index">
+				<p class="weui-tabbar__label">首页</p>
+			</a>
+			<a href="../order/order_list.html" class="weui-tabbar__item mn-order">
+				<p class="weui-tabbar__label">订单</p>
+			</a>
+			<a href="../distributor/disserbutor_list.html" class="weui-tabbar__item mn-dis">
+				<p class="weui-tabbar__label">代理商</p>
+			</a>
+			<a href="../goods/goods_list.html" class="weui-tabbar__item mn-goods">
+				<p class="weui-tabbar__label">商品</p>
+			</a>
+			<a href="../news/news_list.html" class="weui-tabbar__item mn-news">
+				<p class="weui-tabbar__label">消息</p>
 			</a>
 		</div>
-		<div class="m-list">
-			<a href="../order/order_list.html?type=2">
-				<div class="title i-deliver">待发货订单</div>
-				<div class="size" id="orderSend">0笔</div>
-			</a>
-		</div>
-		<!--<div class="m-list">
-			<a href="../order/order_list.html?type=3">
-				<div class="title i-retreat">待审核退货单</div>
-				<div class="size" id="orderReturnAudit">0笔</div>
-			</a>
-		</div>-->
-		<div class="m-list">
-			<!--<div class="title i-dealer">待审核经销商</div>
-			<div class="size" id="resellerAudit">0笔</div>-->
-		</div>
+	</div>
 
-		<div class="blank90"></div>
-		<nav class="m-nav" id="tabs">
-			<a href="javascript:;" class="cur mn-index">首页</a>
-			<a href="javascript:;" class="mn-order">订单</a>
-			<a href="javascript:;" class="mn-dis">代理商</a>
-			<a href="javascript:;" class="mn-goods">商品</a>
-			<a href="javascript:;" class="mn-news">消息</a>
-			<!--<a id="home" href="javascript:;" class="cur mn-index">首页</a>
-			<a href="../order/order_list.html" class="mn-order">订单</a>
-			<a href="../distributor/disserbutor_list.html" class="mn-dis">经销商</a>
-			<a href="../goods/goods_list.html" class="mn-goods">商品</a>
-			<a href="../news/news_list.html" class="mn-news">消息</a>-->
-		</nav>
-
-	</body>
+</body>
 
 </html>

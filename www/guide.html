@@ -1,189 +1,281 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-            <meta charset="utf-8">
-                <title>医站通</title>
-                <meta content="yes" name="apple-mobile-web-app-capable">
-                    <meta content="yes" name="apple-touch-fullscreen">
-                        <meta name="apple-mobile-web-app-capable" content="yes" />
-                        <meta name="apple-mobile-web-app-status-bar-style" content="blank" />
-                        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-                        
-                        <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
-                            <link href="./css/guide/common.css" rel="stylesheet" type="text/css" />
-                            <link href="./css/guide/font.css" rel="stylesheet" type="text/css" />
-                            <link href="./css/guide/guide.css" rel="stylesheet" type="text/css" />
-                            <link rel="stylesheet" type="text/css" href="./css/iconfont.css">
-                                <link rel="stylesheet" href="css/swiper.min.css?v=56d9b8b2ca"/>
-                                <style type="text/css">
-                                    header .ui-header-positive {
-                                        background-color: #3670C5;
-                                    }
-                                .icon {
-                                    width: 1em; height: 1em;
-                                    vertical-align: -0.15em;
-                                    fill: currentColor;
-                                    overflow: hidden;
-                                }
-                                .swiper-container img{
-                                    width: 100%;
-                                }
-                                .swiper-container {
-                                    margin: 0 auto;
-                                }
-                                .swiper-slide {
-                                    text-align: center;
-                                    font-size: 18px;
-                                    background: #fff;
-                                }
-                                .nav-area a {
-                                    color: #333333;
-                                }
-                                .nav-area a:link {
-                                    
-                                    text-decoration: none;
-                                }
-                                .nav-area a:visited {
-                                    text-decoration: none;
-                                }
-                                .nav-flex li { text-align: center }
-                                .nav-flex li i { font-size: 36px; line-height: 36px;}
-                                    </style>
-                                
-                                <script src="js/fastclick.js?v=6e9d3b0da7"></script>
-                                <script type="text/javascript" src="libs/zepto.min.js?v=c6ee36ccfc"></script>
-                                <script type="text/javascript" src="cordova.js"></script>
-                                <script src="guide.js?v=ad66990745"></script>
-                                <script src="js/swiper.min.js?v=508d39206e"></script>
-                                <!--<script type="text/javascript" src="cordova.js"></script>-->
-                                <script type="text/javascript" src="js/app.js"></script>
-                                
-    </head>
-    <body>
-        
-        <header class="header">
-            <div class="head-flex">
-                <div class="classify-box"><i class="classify">&#x3557;</i></div>
-                <!--<div class="search-box"><h1>医站通</h1></div>-->
-                <div class="search-box"><input type="text" placeholder="输入搜索关键词"><i class="search search-btn">&#xe6ae;</i></div>
-                <div class="shopcar-box" id="jumpLogin"><i class="iconfont icon-shenfenzheng" style="font-size:24px"></i></div>
-            </div>
-        </header>
-        
-        <section class="ui-container" style="margin-top:3rem;width:100%;">
-            <div class="swiper-container">
-                <div class="swiper-wrapper" id="adlist">
-                    <div class="swiper-slide" onclick="jumpToUrl('https://www.baidu.com')">
-                        <img src="images/screen-xxhdpi-portrait.png"/>
-                    </div>
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination swiper-pagination-white"></div>
-            </div>
-        </section>
-        
-        <section class="nav-area">
+
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <title>医站通</title>
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="blank" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0, user-scalable=no">
+    <link href="./css/guide/common.css" rel="stylesheet" type="text/css" />
+    <link href="./css/guide/font.css" rel="stylesheet" type="text/css" />
+    <link href="./css/guide/guide.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="./css/iconfont.css">
+    <link rel="stylesheet" href="css/swiper.min.css?v=56d9b8b2ca" />
+    <style type="text/css">
+        header .ui-header-positive {
+            background-color: #3670C5;
+        }
+
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+
+        .swiper-container img {
+            width: 100%;
+        }
+
+        .swiper-container {
+            margin: 0 auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            font-size: 18px;
+            background: #fff;
+        }
+
+        .nav-area a {
+            color: #333333;
+        }
+
+        .nav-area a:link {
+
+            text-decoration: none;
+        }
+
+        .nav-area a:visited {
+            text-decoration: none;
+        }
+
+        .nav-flex li {
+            text-align: center
+        }
+
+        .nav-flex li i {
+            font-size: 36px;
+            line-height: 36px;
+        }
+    </style>
+
+    <script src="js/fastclick.js?v=6e9d3b0da7"></script>
+    <script type="text/javascript" src="libs/zepto.min.js?v=c6ee36ccfc"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="guide.js?v=ad66990745"></script>
+    <script src="js/swiper.min.js?v=508d39206e"></script>
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+    <script type="text/javascript" src="js/app.js"></script>
+
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="head-flex">
             
-            <div class="nav-flex">
-                <ul>
-                    <li>
-                        <div class="aditem" data-url="https://www.yibanmed.com/zslist.html">
-                            <i class="iconfont icon-zhaoshangdaili"></i><p>招商信息</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="aditem" data-url="https://www.yibanmed.com/compnew.html">
-                            <i class="iconfont icon-cailiaochangjia"></i>
-                            <p>厂家列表</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="aditem" data-url="https://www.yibanmed.com/news_1.html">
-                            <i class="iconfont icon-xinwen"></i>
-                            <p>新闻资讯</p>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="aditem" data-url="https://www.yibanmed.com/financial.html">
-                            <i class="iconfont icon-jinrongxingye"></i>
-                            <p>金融服务</p>
-                        </div>
-                    </li>
-                </ul>
+            <div class="classify-box">
+                <!-- <i class="classify">&#x3557;</i> -->
             </div>
-        </section>
-        
-        <section>
-            <div class="title border-b">
-                <i class="iconfont icon-favorite"></i><span id="promotionTitle">优品推荐</span>
+            <div class="search-box align-c"><h1>医站通</h1></div>
+            <!--
+            <div class="search-box">
+                <input type="text" placeholder="输入搜索关键词">
+                <i class="search search-btn">&#xe6ae;</i>
             </div>
-            <div class="content">
-                <div class="content-flex border-r pd-t-10 align-c" id="promotion0">
-                    <h2><span class="item_title">商品标题</span></h2>
-                    <p class="subtitle price"></p>
-                    <div><img class="product_image" alt=""></div>
-                </div>
-                <div class="content-flex">
-                    <div class="content-item" id="promotion1">
-                        <div class="item-flex">
-                            <h2><span class="item_title">商品标题</span></h2>
-                            <p class="subtitle price"></p>
-                        </div>
-                        <div class="item-flex pd-t-0"><img class="product_image" alt=""></div>
-                    </div>
-                    <div class="content-item border-t" id="promotion2">
-                        <div class="item-flex">
-                            <img class="product_image" alt="">
-                        </div>
-                        <div class="item-flex">
-                            <h2><span class="item_title">商品标题</span></h2>
-                            <p class="subtitle price"></p>
-                        </div>
-                    </div>
+            -->
+            <div class="shopcar-box" id="jumpLogin">
+                <i class="iconfont icon-shenfenzheng" style="font-size:24px"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="ui-container" style="margin-top:3rem;width:100%;">
+        <div class="swiper-container">
+            <div class="swiper-wrapper" id="adlist">
+                <div class="swiper-slide" onclick="jumpToUrl('https://www.baidu.com')">
+                    <img src="images/screen-xxhdpi-portrait.png" />
                 </div>
             </div>
-        </section>
-        
-        <section>
-            <div id="ad0"/>
-        </section>
-        
-        
-        <section>
-            <div class="title border-b">
-                <i class="iconfont icon--diannao"></i><span id="promTitle">优惠促销</span>
-            </div>
-            <div class="content">
-                <div class="content-flex border-r pd-t-10 align-c" id="prom0">
-                    <h2><span class="item_title">商品标题</span></h2>
-                    <p class="subtitle price"></p>
-                    <div><img class="product_image" alt=""></div>
-                </div>
-                <div class="content-flex">
-                    <div class="content-item" id="prom1">
-                        <div class="item-flex">
-                            <h2><span class="item_title">商品标题</span></h2>
-                            <p class="subtitle price"></p>
-                        </div>
-                        <div class="item-flex pd-t-0"><img class="product_image" alt=""></div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination swiper-pagination-white"></div>
+        </div>
+    </section>
+
+    <section class="nav-area">
+
+        <div class="nav-flex">
+            <ul>
+                <li>
+                    <div class="aditem" data-url="https://www.yibanmed.com/zslist.html">
+                        <i class="iconfont icon-zhaoshangdaili"></i>
+                        <p>招商信息</p>
                     </div>
-                    <div class="content-item border-t" id="prom2">
-                        <div class="item-flex"><img class="product_image" alt=""></div>
-                        <div class="item-flex">
-                            <h2><span class="item_title">商品标题</span></h2>
-                            <p class="subtitle price"></p>
-                        </div>
+                </li>
+                <li>
+                    <div class="aditem" data-url="https://www.yibanmed.com/compnew.html">
+                        <i class="iconfont icon-cailiaochangjia"></i>
+                        <p>厂家列表</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="aditem" data-url="https://www.yibanmed.com/news_1.html">
+                        <i class="iconfont icon-xinwen"></i>
+                        <p>新闻资讯</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="aditem" data-url="https://www.yibanmed.com/financial.html">
+                        <i class="iconfont icon-jinrongxingye"></i>
+                        <p>金融服务</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <div id="ad0" />
+    </section>
+
+    <section>
+        <div class="title border-b">
+            <i class="iconfont icon-favorite"></i>
+            <span id="promotionTitle">优品推荐</span>
+        </div>
+        <div class="content">
+            <div class="content-flex border-r pd-t-10 align-c" id="promotion0">
+                <h2>
+                    <span class="item_title">商品标题</span>
+                </h2>
+                <p class="subtitle price"></p>
+                <div class="pd-5">
+                    <img class="product_image" alt="">
+                </div>
+            </div>
+            <div class="content-flex">
+                <div class="content-item" id="promotion1">
+                    <div class="item-flex">
+                        <h2>
+                            <span class="item_title">商品标题</span>
+                        </h2>
+                        <p class="subtitle price"></p>
+                    </div>
+                    <div class="item-flex pd-5">
+                        <img class="product_image" alt="">
+                    </div>
+                </div>
+                <div class="content-item border-t" id="promotion2">
+                    <div class="item-flex pd-5">
+                        <img class="product_image" alt="">
+                    </div>
+                    <div class="item-flex">
+                        <h2>
+                            <span class="item_title">商品标题</span>
+                        </h2>
+                        <p class="subtitle price"></p>
                     </div>
                 </div>
             </div>
-        </section>
-        
-        <footer class="foot">
-            医站通<br>
-            医疗器械第三方综合服务平台<br>
-            咨询热线：40077-40088
-        </footer>
-        
-    </body>
+        </div>
+    </section>
+
+    <section>
+        <div id="ad1" />
+    </section>
+
+
+    <section>
+        <div class="title border-b">
+            <i class="iconfont icon--diannao"></i>
+            <span id="promTitle">优惠促销</span>
+        </div>
+        <div class="content border-b">
+            <div class="content-flex border-r pd-t-10 align-c" id="prom0">
+                <h2>
+                    <span class="item_title">商品标题</span>
+                </h2>
+                <p class="subtitle price"></p>
+                <div class="pd-5">
+                    <img class="product_image" alt="">
+                </div>
+            </div>
+            <div class="content-flex">
+                <div class="content-item" id="prom1">
+                    <div class="item-flex">
+                        <h2>
+                            <span class="item_title">商品标题</span>
+                        </h2>
+                        <p class="subtitle price"></p>
+                    </div>
+                    <div class="item-flex pd-5">
+                        <img class="product_image" alt="">
+                    </div>
+                </div>
+                <div class="content-item border-t" id="prom2">
+                    <div class="item-flex pd-5">
+                        <img class="product_image" alt="">
+                    </div>
+                    <div class="item-flex">
+                        <h2>
+                            <span class="item_title">商品标题</span>
+                        </h2>
+                        <p class="subtitle price"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="content-flex border-r">
+                <div class="content-item" id="prom3">
+                    <div class="item-flex">
+                        <h2>
+                            <span class="item_title">商品标题</span>
+                        </h2>
+                        <p class="subtitle price"></p>
+                    </div>
+                    <div class="item-flex pd-5">
+                        <img class="product_image" alt="">
+                    </div>
+                </div>
+                <div class="content-item border-t" id="prom4">
+                    <div class="item-flex pd-5">
+                        <img class="product_image" alt="">
+                    </div>
+                    <div class="item-flex">
+                        <h2>
+                            <span class="item_title">商品标题</span>
+                        </h2>
+                        <p class="subtitle price"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="content-flex align-c pd-t-10" id="prom5">
+                <h2>
+                    <span class="item_title">商品标题</span>
+                </h2>
+                <p class="subtitle price"></p>
+                <div class="pd-5">
+                    <img class="product_image" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="foot">
+        医站通
+        <br> 医疗器械第三方综合服务平台
+        <br> 咨询热线：40077-40088
+    </footer>
+
+</body>
+
 </html>

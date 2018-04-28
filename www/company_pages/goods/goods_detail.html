@@ -1,93 +1,128 @@
 <html>
 
-	<head>
-		<title></title>
-		<meta charset="utf-8">
-		<meta name="data-spm" content="a215s">
-		<meta content="yes" name="apple-mobile-web-app-capable">
-		<meta content="yes" name="apple-touch-fullscreen">
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<meta name="data-spm" content="a215s">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 
-		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-		<meta http-equiv="Pragma" content="no-cache" />
-		<meta http-equiv="Expires" content="0" />
-		<link rel="stylesheet" href="../../css/frozen.css" />
-		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
-		<script type="text/javascript" src="../../js/fastclick.js"></script>
-		<script type="text/javascript" src="../../libs/zepto.min.js" ></script>
-		<script type="text/javascript" src="../../js/frozen.js"></script>
-		<script type="text/javascript" src="../../js/crypto-js.js"></script>
-		<script type="text/javascript" src="../../js/md5.min.js"></script>
-		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
-		<script type="text/javascript" src="../../js/httpservice.js"></script>
-		<script type="text/javascript" src="../../cordova.js"></script>
-		<script type="text/javascript" src="../../js/app.js"></script>
-		<script type="text/javascript" src="goods_detail.js"></script>
-	</head>
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<link rel="stylesheet" href="../../css/frozen.css" />
+	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src="../../js/fastclick.js"></script>
+	<script type="text/javascript" src="../../libs/zepto.min.js"></script>
+	<script type="text/javascript" src="../../js/frozen.js"></script>
+	<script type="text/javascript" src="../../js/crypto-js.js"></script>
+	<script type="text/javascript" src="../../js/md5.min.js"></script>
+	<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+	<script type="text/javascript" src="../../js/httpservice.js"></script>
+	<script type="text/javascript" src="../../cordova.js"></script>
+	<script type="text/javascript" src="../../js/app.js"></script>
+	<script type="text/javascript" src="goods_detail.js"></script>
+	<style>
+	.mn-goods:before {color:white;}
+	.tel-icon:before {content: "\e919";color:white;}
+	</style>
+</head>
 
-	<body>
-		<header class="header">
-			<div class="arr-le">
-				<a onclick="history.go(-1)" href="javascript:;" title="返回" class="per i-t-return"></a>
-			</div>
-			<div class="title" id="CompName"></div>
-			<div class="back-ri"></div>
-		</header>
-		<div class="ui-loading-block show" id="loading">
-			<div class="ui-loading-cnt">
-				<i class="ui-loading-bright"></i>
-				<p>正在加载中...</p>
-			</div>
+<body>
+	<header class="header">
+		<div class="arr-le">
+			<a onclick="history.go(-1)" href="javascript:;" title="返回" class="per
+					i-t-return"></a>
 		</div>
-		<!--商品标题 start-->
-		<div class="v-goods-p" id="GoodsImg"></div>
-		<div class="v-goods-t">
-			<div class="title" id="GoodsName"></div>
-			<div class="view acolor" id="BarCode"></div>
-			<div class="price">价格：<i class=" rcolor" id="TinkerPrice"></i></div>
-		</div>
-		<!--商品标题 end-->
+		<div class="title" id="ProductName"></div>
+		<div class="back-ri"></div>
+	</header>
 
-		<!--商品规格 start-->
-		<div class="v-goods-s">
-			<div class="cd-screen">
-				<div class="title sku1title"></div>
-				<ul class="state sku1 skuul"></ul>
+	<footer class="ui-footer ui-footer-btn whiBg">
+		<ul class="ui-tiled ui-border-t">
+			<li class="ui-border-r orange-btn-bg" data-url="goods_list.html">
+				<i class="mn-goods"></i>
+				<span>店铺首页</span>
+			</li>
+			<li class="ui-border-r blue-btn-bg contact-dianpu" data-url="../personal_center/company_info.html">
+				<i class="tel-icon"></i>
+				<span>联系厂家</span>
+			</li>
+		</ul>
+	</footer>
+		
+	<div class="ui-loading-block show" id="loading">
+		<div class="ui-loading-cnt">
+			<i class="ui-loading-bright"></i>
+			<p>正在加载中...</p>
+		</div>
+	</div>
+
+	<section class="ui-container">
+
+		<section id="slider" style="margin-bottom:10px">
+			<div class="ui-slider" style="height:250px">
+				<ul class="ui-slider-content">
+				</ul>
 			</div>
-			<div class="cd-screen">
-				<div class="title sku2title"></div>
-				<ul class="state sku2 skuul"></ul>
-			</div>
-			<div class="cd-screen">
-				<div class="title sku3title"></div>
-				<ul class="state sku3 skuul"></ul>
-			</div>
-			<div class="cd-sale">
-				<!--<div class="fl">数量</div>-->
-				<!--<div class="numbe fl">
-					<a href="javascript:;" class="minus"></a><input name="txtGoodsNum" id="txtGoodsNum" onkeyup="IntYZ(this)" onblur="IntYZ(this)" type="text" class="box" value="0">
+		</section>
+
+
+		<div class="ui-whitespace" style="margin-bottom: 10px">
+			<h2 class="ui-txt-default" id="GoodsName"></h2>
+			<p class="ui-txt-default">编码：<span class="ui-txt-info" id="BarCode"></span></p>
+
+			<p class="price">价格：
+				<span class="ui-txt-highlight" id="TinkerPrice"></span>
+			</p>
+
+			<!--商品规格 start-->
+			<div class="v-goods-s">
+				<div>
+					<div class="title sku1title"></div>
+					<ul class="state sku1 skuul"></ul>
+				</div>
+				<div>
+					<div class="title sku2title"></div>
+					<ul class="state sku2 skuul"></ul>
+				</div>
+				<div>
+					<div class="title sku3title"></div>
+					<ul class="state sku3 skuul"></ul>
+				</div>
+				<div class="cd-sale">
+					<!--<div class="fl">数量</div>-->
+					<!--<div class="numbe fl">
+					<a href="javascript:;" class="minus"></a><input name="txtGoodsNum"
+						id="txtGoodsNum" onkeyup="IntYZ(this)" onblur="IntYZ(this)" type="text"
+						class="box" value="0">
 					<a href="javascript:;" class="add"></a>
 				</div>-->
-				<div class="fl f12">库存<span id="Inventory"></span>件</div>
+					<div class="fl f12">库存
+						<span id="Inventory"></span>件</div>
+				</div>
 			</div>
-		</div>
-		<!--商品规格 end-->
-		<div class="v-goods-b">商品介绍</div>
-		<div class="v-goods-n" id="Details">
 
-		</div>
-		<div class="blank90"></div>
-		<!--<div class="v-goods-btn">
+			<!--商品规格 end-->
+			<div class="v-goods-b">商品介绍</div>
+			<div class="v-goods-n" id="Details"></div>
+			<!--<div class="v-goods-btn">
 			<a href="" class="collect">加入收藏</a>
 			<a href="" class="collect ok">已收藏</a>
 			<a href="" class="join">加入购物车</a>
 		</div>-->
 
-		<!--隐藏域 start-->
-		<input type="hidden" id="SKUID" value="-1">
+			<!--隐藏域 start-->
+			<input type="hidden" id="SKUID" value="-1">
 
-		<!--隐藏域 end-->
+			<!--隐藏域 end-->
+		</div>
+		</div>
 
-	</body>
+	</section>
+
+
+</body>
 
 </html>

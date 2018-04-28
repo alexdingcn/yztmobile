@@ -14,12 +14,20 @@ $(function() {
 		var Select = sessionStorage.getItem('$comp_selectObj') || "";
 		if(Select !== '') {
 			var selectObj = JSON.parse(Select);
-			$("#States").val(selectObj.OrderState);
-			$("#PayStates").val(selectObj.PayState);
-			$("#ResellerIDs").val(selectObj.ResellerID);
+			if (selectObj.OrderState) {
+				$("#States").val(selectObj.OrderState);
+			}
+			if (selectObj.PayState) {
+				$("#PayStates").val(selectObj.PayState);
+			}
+			if (selectObj.ResellerID) {
+				$("#ResellerIDs").val(selectObj.ResellerID);
+			}
 			$("#BeginDates").val(selectObj.CreateDate);
 			$("#EndDates").val(selectObj.EndeDate);
-			$("#ResellerText").val(selectObj.ResellerName);
+			if (selectObj.ResellerName) {
+				$("#ResellerText").val(selectObj.ResellerName);
+			}
 		}
 	}
 
@@ -67,6 +75,7 @@ function DataOrderBind() {
 			var html = "";
 			//遍历订单  追加到列表
 			$.each(response.OrderList, function(index, item) {
+				console.log(item);
 				if(index == response.OrderList.length - 1)
 				CriticalOrderID = item.OrderID;
 //					$("#CriticalOrderIDs").val(item.OrderID)
@@ -114,21 +123,41 @@ function DataOrderBind() {
 				if(index == response.OrderList.length - 1)
 					$("#CriticalProductIDs").val(item.OrderID) //记录当前列表最临界点订单ID
 				
-					
-				html += "<li class=\"li " + cancel + "\"><a href=\"order_detail.html?random=" + Math.random() + "&id=" + item.ReceiptNo + "\">" +
-					"<i class=\"" + stateClass + "\">" + statetitle + "</i>" +
-					"<div class=\"title\">" + item.ReceiptNo + "<i class=\"state\">" + statetext + "</i></div>" +
-					"<div class=\"a1\">订单金额：¥" + item.TotalAmount + "（已付金额：¥" + item.PayedAmount + "） </div>" +
+
+				html += "<li class=\"ui-border-t " + cancel + "\" data-id=\"" + item.ReceiptNo + "\">" +
+					"<div class=\"ui-list-info content\">" + 
+					"<i class=\"" + stateClass + "\">" + statetitle + "</i>" + 
+					"<div class=\"title\">" + item.DisName + "</div>" + 
+					"<div class=\"a1\">订单号：" + item.ReceiptNo + "</div>" +
+					"<div class=\"a1\">订单金额：¥" + item.TotalAmount;
+				if (item.PayedAmount && item.PayedAmount > 0) {
+					html += "（已付：¥" + item.PayedAmount + "）";
+				} else {
+					html += "（未支付）";
+				}
+				html += "</div>" +
 					"<div class=\"a1\">共" + item.OrderDetailList.length + "种商品</div>" +
-					"<div class=\"a1\">" + item.CreateDate + "</div></a>"+
-//					'<div class="a2"><a href="order_detail.html?random='+ Math.random() + "&id=" + item.ReceiptNo +'" class="g-btn">查看详情</a></div>'
-					'<div class="a2"></div>'
+					"<div class=\"a1\">" + item.CreateDate + "</div>"+
+					"</div>";
+				if (cancel == "cancel") {
+					html += '<div class="ui-badge-muted">';
+				} else {
+					html += '<div class="ui-badge">';
+				}
+				html += statetext + '</div></li>';
 			});
-			$('.order-li').show();
 			$(".order-li").append(html);
+			$('.order-li').show();
+			
 			listIsNull = false;
 			$(window).bind("scroll", LoadData); //重新绑定下拉事件
-		}else if(response.Result == "T" && response.OrderList === null){
+
+			$(".order-li li").unbind('click');
+			$(".order-li li").on('click', function() {
+				var orderId = $(this).data("id");
+				window.location = "order_detail.html?random=" + Math.random() + "&id=" + orderId;
+			})
+		} else if(response.Result == "T" && response.OrderList === null){
 			
 			
 		} else if(response.Result == "T" && response.OrderList.length != 10) {
