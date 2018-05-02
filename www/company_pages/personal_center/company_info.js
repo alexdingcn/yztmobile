@@ -39,7 +39,7 @@ if(!is_weixin()) {
 			/*发送数据请求*/
 			var OrderPrompt = JSON.stringify({
 				UserID: usersObj.UserID,
-				CompID: usersObj.CompID || getUrlParameter("compid")
+				CompID: getUrlParameter("compid") || usersObj.CompID
 			});		
 			post('GetCompanyInfo', OrderPrompt, function(response) {
 				if(response.Result === "T") {

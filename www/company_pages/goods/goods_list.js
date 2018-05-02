@@ -116,7 +116,7 @@ $(function() {
 		$("#Classifs").val(selectClassifiID)
 		$("#goodsLiBig").html("");
 		var htm = '<div class="ui-loading-wrap">' +
-			'<p>小陌正在努力加载中...</p>' +
+			'<p>正在努力加载中...</p>' +
 			'<i class="ui-loading"></i>' +
 			'</div>';
 
@@ -232,7 +232,7 @@ function getDate() {
 	}
 	
 	var DataJson = {
-		CompID: usersObj.CompID || getUrlParameter("compid"), //核心企业ID
+		CompID: getUrlParameter("compid") || usersObj.CompID, //核心企业ID
 		Condition: Conditions,
 		CriticalProductID: CriticalProductIDs,
 		Filter: {

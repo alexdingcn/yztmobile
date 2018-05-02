@@ -26,7 +26,7 @@ a:active {color: #666;}
 .i-t-news.tis:after{ display:block;}
 /*公共-高度边距*/
 body{ padding-top:0.8rem;}
-.no-padding { padding: 0; }
+.no-padding { padding: 0!important; }
 .grey-bg { background-color:#f8f8f8 }
 .blank20,.blank90,.blank110,.blank30{ height:0.2rem; clear:both; width:100%;}.blank110{ height:1.1rem;}.blank90{ height:1.0rem;}.blank30{ height:0.3rem;}.none {display:none !important;}
 .maT20{ border-top:0.2rem solid #f4f4f4;}

@@ -22,10 +22,12 @@
 	<script type="text/javascript" src="../../js/httpservice.js"></script>
 	<script type="text/javascript" src="../../cordova.js"></script>
 	<script type="text/javascript" src="../../js/app.js"></script>
+	<script type="text/javascript" src="../../js/swiper.min.js?v=508d39206e"></script>
 	<script type="text/javascript" src="goods_detail.js"></script>
 	<style>
 	.mn-goods:before {color:white;}
 	.tel-icon:before {content: "\e919";color:white;}
+	.swiper-container { width: 100%; height: 400px;}
 	</style>
 </head>
 
@@ -62,9 +64,11 @@
 	<section class="ui-container">
 
 		<section id="slider" style="margin-bottom:10px">
-			<div class="ui-slider" style="height:250px">
-				<ul class="ui-slider-content">
-				</ul>
+			<div class="swiper-container no-padding">
+				<div class="swiper-wrapper">
+	
+				</div>
+				<div class="swiper-pagination swiper-pagination-white"></div>
 			</div>
 		</section>
 
@@ -73,7 +77,7 @@
 			<h2 class="ui-txt-default" id="GoodsName"></h2>
 			<p class="ui-txt-default">编码：<span class="ui-txt-info" id="BarCode"></span></p>
 
-			<p class="price">价格：
+			<p class="price hide">价格：
 				<span class="ui-txt-highlight" id="TinkerPrice"></span>
 			</p>
 
@@ -91,7 +95,7 @@
 					<div class="title sku3title"></div>
 					<ul class="state sku3 skuul"></ul>
 				</div>
-				<div class="cd-sale">
+				<div class="	 hide">
 					<!--<div class="fl">数量</div>-->
 					<!--<div class="numbe fl">
 					<a href="javascript:;" class="minus"></a><input name="txtGoodsNum"
@@ -104,9 +108,24 @@
 				</div>
 			</div>
 
-			<!--商品规格 end-->
-			<div class="v-goods-b">商品介绍</div>
-			<div class="v-goods-n" id="Details"></div>
+			<div class="ui-tab ">
+				<ul class="ui-tab-nav ui-border-b">
+					<li class="current">商品介绍</li>
+					<li >注册证</li>
+				</ul>
+				<ul class="ui-tab-content" style="width:200%">
+					<li style="overflow:hidden">
+						<div class="v-goods-n" id="Details"></div>
+					</li>
+					<li>
+						<div style="min-height: 200px" id="certImg"></div>
+	
+					</li>
+				</ul>
+			</div>
+			
+				
+
 			<!--<div class="v-goods-btn">
 			<a href="" class="collect">加入收藏</a>
 			<a href="" class="collect ok">已收藏</a>

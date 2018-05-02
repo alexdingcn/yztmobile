@@ -35,12 +35,15 @@ $(document).ready(function ($) {
 });
 
 function createScroll() {
-	var slider = new fz.Scroll('.ui-slider', {
-		role: 'slider',
-		indicator: true,
-		autoplay: true,
-		interval: 3000
+	var swiper = new Swiper('.swiper-container', {
+		pagination: '.swiper-pagination',
+		direction: "horizontal",
+		loop: true,
+		autoplay: 4000,
+		preloadImages: false,
+		lazyLoading: true,
 	});
+	$(".swiper-container img").attr("width", window.screen.width + "px");
 }
 
 var Gid = ""; //商品ID
@@ -99,12 +102,18 @@ function DataGoodsBind() {
 	var roleDetail = localStorage.getItem('$login_role') || "[]";
 	var usersObj = JSON.parse(roleDetail);
 
+	if (usersObj && usersObj.UserID) {
+		$(".price").show();
+		$(".cd-sale").show();
+	}
+
 	var DataJson = {
-		CompanyID: usersObj.CompID || getUrlParameter("compid"), //核心企业ID
+		CompanyID: getUrlParameter("compid") || usersObj.CompID, //核心企业ID
 		GoodsID: Gid,
 		ResellerID: "", //经销商ID
 		UserID: usersObj.UserID //用户ID
 	};
+
 	var datastr = JSON.stringify(DataJson);
 	post('SearchGoodsList', datastr, function (response) {
 		console.log(response);
@@ -116,14 +125,26 @@ function DataGoodsBind() {
 			if (goodsItem.ProductPicUrlList.length > 0) {
 				var imgUrl = "";
 				for (var i = 0; i < goodsItem.ProductPicUrlList.length; i++) {
-					imgUrl += "<li><span style=\"background-image:url(" + goodsItem.ProductPicUrlList[i].PicUrl + ")\"></span></li>";
+					imgUrl += '<div class="swiper-slide">';
+					imgUrl += '<img src="' + goodsItem.ProductPicUrlList[i].PicUrl + '">';
+					imgUrl += '</div>';
 				}
-				$(".ui-slider-content").html(imgUrl);
+				$(".swiper-wrapper").html(imgUrl);
+				
 				createScroll();
 			} else {
-				$(".ui-slider-content").html("<li><img src=\"../../images/pic.jpg\"></li>");
+				$(".swiper-wrapper").html("<div class=\"swiper-slide\"><img src=\"../../images/pic.jpg\"></div>");
 			}
 
+			if (goodsItem.certUrl) {
+				$("#certImg").html("<img width=\"100%\" src=\"" + goodsItem.certUrl + "\">");
+			}
+
+			new fz.Scroll('.ui-tab', {
+				role: 'tab',
+				autoplay: false
+			});
+			
 			if (goodsItem.ProductName && goodsItem.ProductName.length > 12) {
 				$("#ProductName").html(goodsItem.ProductName.substring(0, 12) + '...'); //公司名称
 			} else {
