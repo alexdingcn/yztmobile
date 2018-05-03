@@ -2,6 +2,7 @@ var ClassifyList = null; //商品分类
 var listIsNull = true;
 var provisionalList = null;
 var selectClassifiID = '-1';
+var logged = false;
 window.onload = function() {
 	if(!is_weixin()) {
 		document.addEventListener("jpush.openNotification", onOpenNotification, false);
@@ -174,7 +175,7 @@ function DataGoodsBind() {
 					'<div class="pic"><img  src="' + imgurl + '"></div>' +
 					' <div class="number">' + value.ProductCode + '</div>' +
 					'<div class="title">' + value.ProductName + '</div>' +
-					'<div class="sum rcolor">¥' + value.SalePrice + '</div>' +
+					(logged ? '<div class="sum rcolor">¥' + value.SalePrice + '</div>' : '') +
 					'</a>' +
 					'<a href="goods_detail.html?random=' + Math.random() + "id=" + value.ProductID + '">' +
 					' </div>'
@@ -226,8 +227,13 @@ function getDate() {
 	var roleDetail = localStorage.getItem('$login_role') || "[]";
 	var usersObj = JSON.parse(roleDetail);
 	if (usersObj.CompName) {
+		logged = true;
+		if (getUrlParameter("compid") != usersObj.CompID) {
+			$('#tabs').remove();
+		}
 		$("#CompName").html(usersObj.CompName) //公司名称
 	} else {
+		logged = false;
 		$('#tabs').remove();
 	}
 	
