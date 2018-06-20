@@ -427,8 +427,8 @@ function setData(orderDetail) {
 			'<div class=number>编号:' + value.BarCode + '<i class=mon></i></div>' +
 			//'<div class=number>编号:' + value.BarCode + '<i class=mon>' + value.Inventory+ '</i></div>' +
 			'<div class=number>名称:' + value.SKUName + '</div>' +
-			'<div class=number>规格:' + value.ValueInfo + '<i class=size>X' + value.Num + '</i></div>' +
-			'<div class=number acolor>备注:' + value.Remark + '</div>' +
+			'<div class=number>规格:' + value.ValueInfo + '<i class=size>x' + parseInt(value.Num) + '</i></div>' +
+			(value.Remark ? '<div class=number acolor>备注:' + value.Remark + '</div>' : '') +
 			'</div>'
 	});
 

@@ -1,77 +1,129 @@
 <html>
 
-	<head>
-		<title></title>
-		<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
-		<meta http-equiv="Pragma" content="no-cache" />
-		<meta http-equiv="Expires" content="0" />
-		<meta charset="utf-8">
-		<meta name="data-spm" content="a215s">
-		<meta content="yes" name="apple-mobile-web-app-capable">
-		<meta content="yes" name="apple-touch-fullscreen">
-		<link href="../../css/style.css" rel="stylesheet" type="text/css" />
-		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-		<meta name="format-detection" content="telephone=no" />
+<head>
+	<title>代理商详情</title>
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta charset="utf-8">
+	<meta name="data-spm" content="a215s">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
 
-		<script type="text/javascript" src="../../js/fastclick.js"></script>
-		<script type="text/javascript" src="../../js/jquery.1.11.1.js"></script>
-		<script type="text/javascript" src="../../js/crypto-js.js"></script>
-		<script type="text/javascript" src="../../js/md5.min.js"></script>
-		<script type="text/javascript" src="../../js/xml2json.min.js"></script>
-		<script type="text/javascript" src="../../js/httpservice.js"></script>
-		<script type="text/javascript" src="../../cordova.js"></script>
-<script type="text/javascript" src="../../js/app.js"></script>
-		<script type="text/javascript" src="disserbutor_info.js"></script>
-	</head>
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<meta name="format-detection" content="telephone=no" />
+	<link href="../../css/weui.min.css" rel="stylesheet" type="text/css" />
 
-	<body>
-		<header class="header">
-			<div class="arr-le" id="dis_list">
-				<a  href="javascript:;" title="返回" class="per i-t-return"></a>
+	<script type="text/javascript" src="../../js/fastclick.js"></script>
+	<script type="text/javascript" src="../../libs/zepto.min.js"></script>
+
+	<script type="text/javascript" src="../../js/weui.min.js"></script>
+
+	<script type="text/javascript" src="../../js/crypto-js.js"></script>
+	<script type="text/javascript" src="../../js/md5.min.js"></script>
+	<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+	<script type="text/javascript" src="../../js/httpservice.js"></script>
+	<script type="text/javascript" src="../../cordova.js"></script>
+	<script type="text/javascript" src="../../js/app.js"></script>
+	<script type="text/javascript" src="disserbutor_info.js"></script>
+	<style>
+		body {
+			background-color: #f8f8f8;
+		}
+	</style>
+</head>
+
+<body ontouchstart>
+	<div class="container">
+		<div class="weui-tab">
+			<div class="weui-navbar weui-flex" style="background-color:#008be3;color:white;line-height: 50px;text-align: center;">
+				<div style="padding-left:10px;">
+					<a href="javascript:;" onclick="history.go(-1);" style="text-decoration: none;color:white;"><span>返回</span></a>
+				</div>
+				<div class="weui-flex__item" >
+					<span style="margin-left:-30px">代理商详情</span>
+				</div>
+				<div>
+						<a title="保存" class="per" style="display: none;">禁用</a>
+				</div>
 			</div>
-			<div class="title">代理商详情</div>
-			<div class="back-ri">
-				<a title="保存" class="per" style="display: none;">禁用</a>
-			</div>
-		</header>
+			<div class="weui-tab__panel">
+				<div class="weui-cells">
 
-		<ul class="g-c-day p-t18">
-			<li class="li"><i class="title">编码</i>
-				<div class="info2" id="ResellerCode"></div>
-			</li>
-			<li class="li"><i class="title">名称</i>
-				<div class="info2" id="ResellerName"></div>
-			</li>
-			<li class="li"><i class="title">分类</i>
-				<div class="info2" id="ResellerClassify"></div>
-			</li>
-			<li class="li"><i class="title">区域</i>
-				<div class="info2" id="AreaName"></div>
-			</li>
-			<li class="li"><i class="title">地址</i>
-				<div class="info2" id="ResellerAddr"></div>
-			</li>
-			<li class="li"><i class="title">邮编</i>
-				<div class="info2" id="Zip"></div>
-			</li>
-			<li class="li"><i class="title">电话</i>
-				<div class="info2" id="Tel"></div>
-			</li>
-			<li class="li"><i class="title">传真</i>
-				<div class="info2" id="Fax"></div>
-			</li>
-			<li class="li"><i class="title">联系人</i>
-				<div class="info2" id="Principal"></div>
-			</li>
-			<li class="li"><i class="title">手机</i>
-				<div class="info2" id="Phone"></div>
-			</li>
+					<div class="weui-cell">
+						<div class="weui-cell__bd">
+							<p>名称</p>
+						</div>
+						<div class="weui-cell__ft" id="ResellerName"></div>
+					</div>
+					<div class="weui-cell">
+						<div class="weui-cell__bd">
+							<p>编码</p>
+						</div>
+						<div class="weui-cell__ft" id="ResellerCode"></div>
+					</div>
+					<div class="weui-cell">
+						<div class="weui-cell__bd">
+							<p>分类</p>
+						</div>
+						<div class="weui-cell__ft" id="ResellerClassify"></div>
+					</div>
+					<div class="weui-cell">
+						<div class="weui-cell__bd">
+							<p>区域</p>
+						</div>
+						<div class="weui-cell__ft" id="AreaName"></div>
+					</div>
 
-			<!--<li class="li">
-				<a href="javascript:;" id="updateInfo" class="modify-b">修改基本信息 </a>
-			</li>-->
-		</ul>
-		<!--<ul class="g-c-day">
+					<div class="weui-cell">
+						<div class="weui-cell__bd">
+							<p>地址</p>
+						</div>
+						<div class="weui-cell__ft" id="ResellerAddr"></div>
+					</div>
+
+
+					<div class="weui-cell">
+						<div class="weui-cell__bd">
+							<p>邮编</p>
+						</div>
+						<div class="weui-cell__ft" id="Zip"></div>
+					</div>
+
+					<div class="weui-cell">
+						<div class="weui-cell__bd">
+							<p>电话</p>
+						</div>
+						<div class="weui-cell__ft" id="Tel"></div>
+					</div>
+					<div class="weui-cell">
+						<div class="weui-cell__bd">
+							<p>传真</p>
+						</div>
+						<div class="weui-cell__ft" id="Fax"></div>
+					</div>
+					<div class="weui-cell">
+						<div class="weui-cell__bd">
+							<p>联系人</p>
+						</div>
+						<div class="weui-cell__ft" id="Principal"></div>
+					</div>
+					<div class="weui-cell">
+						<div class="weui-cell__bd">
+							<p>手机</p>
+						</div>
+						<div class="weui-cell__ft">
+							<a href="javascript:;" style="color:#999;text-decoration:none;" id="Phone"></a>
+						</div>
+					</div>
+					<!--
+			<a href="javascript:void(0);" id="updateInfo" class="weui-cell weui-cell_link">
+				<div class="weui-cell__bd">修改基本信息</div>
+			</a>
+-->
+				</div>
+
+			<!--<ul class="g-c-day">
 			<li class="li"><i class="title">发票类型</i>
 				<div class="info2" id="InvoceType"></div>
 			</li>
@@ -94,61 +146,38 @@
 				<a href="javascript:;" class="modify-b" id="updateInvoce">修改发票信息</a>
 			</li>
 		</ul>-->
+			<div class="weui-cells__title">网站账号</div>
+			<div class="weui-cells">
 
-		<ul class="g-c-day">
-			<li class="li"><i class="title">登录账号</i>
-				<div class="info2" id="UserName"></div>
-			</li>
-			<li class="li"><i class="title">姓名</i>
-				<div class="info2" id="TrueName"></div>
-			</li>
-			<li class="li"><i class="title">手机</i>
-				<div class="info2" id="Phonelogin"></div>
-			</li>
-			<!--<li class="li">
-				<a href="javascript:;" id="updateLoging" class="modify-b">修改登录账号</a>
-			</li>-->
-		</ul>
+				<div class="weui-cell">
+					<div class="weui-cell__bd">
+						<p>登录账号</p>
+					</div>
+					<div class="weui-cell__ft" id="UserName"></div>
+				</div>
+				<div class="weui-cell">
+					<div class="weui-cell__bd">
+						<p>姓名</p>
+					</div>
+					<div class="weui-cell__ft" id="TrueName"></div>
+				</div>
+				<div class="weui-cell">
+					<div class="weui-cell__bd">
+						<p>手机</p>
+					</div>
+					<div class="weui-cell__ft">
+						<a href="javascript:;" style="color:#999;text-decoration:none;" id="Phonelogin"></a>
+					</div>
+				</div>
+			</div>
 
-		<div class="blank20"></div>
-
-		<script>
-			(function(doc, win) {
-				var docEl = doc.documentElement,
-					resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
-					recalc = function() {
-						var clientWidth = docEl.clientWidth;
-						if(!clientWidth) return;
-						docEl.style.fontSize = 50 * (clientWidth / 320) + 'px';
-					};
-
-				if(!doc.addEventListener) return;
-				win.addEventListener(resizeEvt, recalc, false);
-				doc.addEventListener('DOMContentLoaded', recalc, false);
-			})(document, window);
-			//点击弹窗
-			jQuery(document).ready(function($) {
-				//open popup
-				$('.cd-popup-trigger').on('click', function(event) {
-					event.preventDefault();
-					$('.cd-popup').addClass('is-visible');
-				});
-
-				//close popup
-				$('.cd-popup').on('click', function(event) {
-					if($(event.target).is('.popup-close') || $(event.target).is('.cd-popup')) {
-						event.preventDefault();
-						$(this).removeClass('is-visible');
-					}
-				});
-				//close popup when clicking the esc keyboard button
-				$(document).keyup(function(event) {
-					if(event.which == '27') {
-						$('.cd-popup').removeClass('is-visible');
-					}
-				});
-			});
-		</script>
-	</body>
+			<div class="weui-cells__title" id="fc-title" style="display: none">首营材料</div>
+			<div class="weui-cells" id="materialList">
+				
+			</div>
+		</div>
+	</div>
+			
+</body>
 
 </html>

@@ -164,7 +164,7 @@ a.mn-fund:before{ content:"\e930"; top:0.13rem; margin-left:-0.2rem; font-size:0
 /*核-商品列表-列表*/
 .goods-li{ padding:0 0.2rem;}
 .goods-li .li{padding:0.2rem 0 0.25rem 1.55rem; border-bottom:1px solid #eee; position:relative; line-height:0.4rem; font-size:0.24rem;}
-.goods-li .pic{ position:absolute; left:0;  width:1.35rem; height:1.35rem; border:1px solid #ddd;}
+.goods-li .pic{ position:absolute; left:0;  width:1.35rem; height:1.35rem; top:5px;}
 .goods-li .pic img{ width:1.35rem; height:1.35rem;}
 .goods-li .number{ color:#999; position:relative;}
 .goods-li .sum{ font-size:0.28rem; position:relative;}

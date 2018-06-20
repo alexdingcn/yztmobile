@@ -63,7 +63,7 @@ button {
 body {
   font-family: "Helvetica Neue",Helvetica,STHeiTi,sans-serif;
   line-height: 1.5;
-  font-size: 16px;
+  font-size: 14px;
   color: #000;
   background-color: #FFFFFF;
   -webkit-user-select: none;
@@ -151,7 +151,7 @@ em, i {
 
 @font-face {
   font-family: "iconfont";
-  src: url(../font/iconfont-full.ttf) format("truetype"); }
+  src: url(../fonts/iconfont-full.ttf) format("truetype"); }
 .ui-icon, [class^="ui-icon-"] {
   font-family: "iconfont" !important;
   font-size: 32px;

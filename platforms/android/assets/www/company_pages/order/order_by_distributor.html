@@ -1,0 +1,99 @@
+<html>
+
+<head>
+	<title>代理商销售情况</title>
+	<meta charset="utf-8">
+	<meta name="data-spm" content="a215s">
+	<meta content="yes" name="apple-mobile-web-app-capable">
+	<meta content="yes" name="apple-touch-fullscreen">
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<link href="../../css/style.css" rel="stylesheet" type="text/css" />
+	<link rel="stylesheet" href="../../css/m_nav.css" />
+	<link rel="stylesheet" href="../../css/weui.min.css" />
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+	<script type="text/javascript" src="../../js/fastclick.js"></script>
+	<script type="text/javascript" src="../../libs/zepto.min.js"></script>
+	<script type="text/javascript" src="../../js/weui.min.js"></script>
+	<script type="text/javascript" src="../../js/tabs.swiper.min.js"></script>
+	<script type="text/javascript" src="../../js/client.js"></script>
+	<script type="text/javascript" src="../../js/crypto-js.js"></script>
+	<script type="text/javascript" src="../../js/md5.min.js"></script>
+	<script type="text/javascript" src="../../js/xml2json.min.js"></script>
+	<script type="text/javascript" src="../../js/httpservice.js"></script>
+	<script type="text/javascript" src="../../cordova.js"></script>
+	<script type="text/javascript" src="../../js/app.js"></script>
+	<script type="text/javascript" src="../../js/moment.min.js"></script>
+	<script type="text/javascript" src="order_by_distributor.js"></script>
+	<style>
+	.header-bg { background-color: #0082d4; color: white; }
+	.header-bg .weui-bar__item_on { background-color: #008be3; }
+	</style>
+</head>
+
+<body ontouchstart class="no-padding grey-bg">
+	<div class="weui-tab">
+		<div class="weui-navbar header-bg">
+			<div class="weui-navbar__item weui-bar__item_on" data-date-offset="0">
+				今天
+			</div>
+			<div class="weui-navbar__item" data-date-offset="7">
+				最近7天
+			</div>
+			<div class="weui-navbar__item" data-date-offset="30">
+				最近一月
+			</div>
+			<div class="weui-navbar__item" data-date-offset="-1">
+				全部
+			</div>
+		</div>
+		<div class="weui-tab__panel">
+			<div class="weui-cells__title">
+				<h3>代理商销售情况汇总</h3>
+			</div>
+			<div class="weui-loadmore" id="loading-hint">
+				<i class="weui-loading"></i>
+				<span class="weui-loadmore__tips">正在加载</span>
+			</div>
+			<div class="weui-loadmore weui-loadmore_line hide" id="no-data-hint">
+				<span class="weui-loadmore__tips">暂无数据</span>
+			</div>
+
+			<div class="weui-cells hide" id="loading-result" style="margin-top:0;margin-bottom:50px">
+			</div>
+			
+		</div>
+
+		<div class="weui-tabbar m-nav">
+			<a href="../home/home.html" class="weui-tabbar__item mn-index">
+				<p class="weui-tabbar__label">首页</p>
+			</a>
+			<a href="../order/order_list.html" class="weui-tabbar__item mn-order weui-bar__item_on cur">
+				<p class="weui-tabbar__label">订单</p>
+			</a>
+			<a href="../distributor/disserbutor_list.html" class="weui-tabbar__item mn-dis">
+				<p class="weui-tabbar__label">代理商</p>
+			</a>
+			<a href="../goods/goods_list.html" class="weui-tabbar__item mn-goods">
+				<p class="weui-tabbar__label">商品</p>
+			</a>
+			<a href="../news/news_list.html" class="weui-tabbar__item mn-news">
+				<p class="weui-tabbar__label">消息</p>
+			</a>
+		</div>
+	</div>
+
+	<!--搜素没有数据时-显示-->
+	<!--隐藏域 start-->
+	<input type="hidden" id="States" value="0">
+	<input type="hidden" id="BeginDates" value="-1">
+	<input type="hidden" id="EndDates" value="-1">
+
+	<input type="hidden" id="PayStates" value="-1">
+	<input type="hidden" id="ResellerIDs" value="0">
+	<!--隐藏域 end-->
+
+</body>
+
+</html>

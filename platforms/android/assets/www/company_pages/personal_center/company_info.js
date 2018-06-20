@@ -9,8 +9,15 @@ window.onload=function(){
 if(!is_weixin()) {
 		document.addEventListener("jpush.openNotification", onOpenNotification, false);
 	};
-	var roleDetail = localStorage.getItem('$login_role');
+	var roleDetail = localStorage.getItem('$login_role') || "";
+	if (roleDetail === null || roleDetail === '') {
+		window.location.href = '../login/login.html';
+		return;
+	}
+	
+	var usersList = JSON.parse(localStorage.getItem('$usersList') || "");
 	usersObj = JSON.parse(roleDetail);
+	
  	initData(usersObj);
    	var save=false;//判断是否保存；默认编辑
 	$('.per').on('click',function(){
@@ -32,7 +39,7 @@ if(!is_weixin()) {
 			/*发送数据请求*/
 			var OrderPrompt = JSON.stringify({
 				UserID: usersObj.UserID,
-				CompID: usersObj.CompID
+				CompID: getUrlParameter("compid") || usersObj.CompID
 			});		
 			post('GetCompanyInfo', OrderPrompt, function(response) {
 				if(response.Result === "T") {
@@ -53,7 +60,7 @@ if(!is_weixin()) {
 		$('.telp').text(message.Tel);
 		$('.fax').text(message.Fax);
 		$('.principal').text(message.Principal);
-		$('.phone').text(message.Phone);
+		$('.phone').html("<a href=\"tel:" + message.Phone + "\">" + message.Phone + "</a>");
 		$('.manageInfo').text(message.ManageInfo);
 		$('.ecompName').val(message.CompName);
 		$('.einduName').val(message.InduName);

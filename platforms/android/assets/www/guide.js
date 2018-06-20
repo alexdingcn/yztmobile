@@ -1,7 +1,7 @@
 $(function() {
     $.ajax({
         type: "get",
-        url: "https://www.yibanmed.com/api/v1/homeconf",
+        url: "https://www.yibanmed.com/api/v1/homepage",
         dataType: "json",
         success: function(data) {
             $("#adlist").empty();
@@ -15,22 +15,21 @@ $(function() {
             }
             $("#adlist").append(bannerContent);
 
-            $('#ad0').empty();
             var adContent = '';
             var ads = data.ads;
             if (ads) {
                 for (var i = 0; i < ads.length; i++) {
                     var url = ads[i].url;
-                    adContent += '<div class="aditem" data-url="' + ads[i].url + '">' +
+                    adContent = '<div class="aditem" data-url="' + ads[i].url + '">' +
                         '<img src="' + ads[i].imageUrl + '"/>' +
                         '</div>';
+                    $("#ad" + i).html(adContent);
                 }
             }
-            $("#ad0").append(adContent);
-
+            
             $('.aditem').click(function(event) {
                 if ($(this).data('url')) {
-                    var ref = window.open($(this).data('url'), '_blank', 'location=no, toolbar=no');
+                    var ref = window.open($(this).data('url'), '_system', 'location=no, toolbar=no');
                     ref.addEventListener('loadstop', function(event) {
                         if (event.url.match('mobile/close')) {
                             ref.close();
@@ -50,7 +49,7 @@ $(function() {
                     if (promotions.list[i].url) {
                         $("#promotion" + i).attr('data-url', promotions.list[i].url);
                         $("#promotion" + i).on('click', function(event) {
-                            var ref = window.open($(this).data('url'), '_blank', 'location=no,toolbar=no');
+                            var ref = window.open($(this).data('url'), '_system', 'location=no,toolbar=no');
                             ref.addEventListener('loadstop', function(event) {
                                 if (event.url.match('mobile/close')) {
                                     ref.close();
@@ -73,7 +72,7 @@ $(function() {
                     if (promotions.list[i].url) {
                         $("#prom" + i).attr('data-url', promotions.list[i].url);
                         $("#prom" + i).on('click', function(event) {
-                            var ref = window.open($(this).data('url'), '_blank', 'location=no, toolbar=no');
+                            var ref = window.open($(this).data('url'), '_system', 'location=no, toolbar=no');
                             ref.addEventListener('loadstop', function(event) {
                                 if (event.url.match('mobile/close')) {
                                     ref.close();
@@ -104,7 +103,7 @@ $(function() {
     });
 
     $('#jumpLogin').click(function() {
-      var ref = window.open('index.html?t=' + Math.random(), '_blank', 'location=no,closebuttoncaption=关闭,transitionstyle=crossdissolve,toolbarposition=top');
+      var ref = window.open('index.html?t=' + Math.random(), '_system', 'location=no,closebuttoncaption=关闭,transitionstyle=crossdissolve,toolbarposition=top');
     });
 
     //判断微信浏览器
@@ -112,43 +111,6 @@ $(function() {
 
         // 注册下拉通知点击事件
         document.addEventListener("jpush.openNotification", onOpenNotification, false);
-        //        document.addEventListener("jpush.receiveNotification", onReceiveNotification, false);
-        //        document.addEventListener("jpush.receiveMessage", onReceiveMessage, false);
-        // 获取本地保存的登陆角色
-        var roleDetail = localStorage.getItem('$login_role') || "";
-        if (roleDetail === null || roleDetail === '') {
-            window.location.href = loginPage;
-            return;
-        }
-
-        usersObj = JSON.parse(roleDetail);
-        if (isDebug()) {
-            setJumpPage(); //页面跳转
-        } else {
-            setTimeout(function() {
-                // 获取JPuah 别名
-                getAlias(function(response) {
-                    if (response.Result === "T") {
-
-                    } else {
-                        //                        Alias获取失败
-                    }
-                });
-                // 设置JPush 别名
-                setAlias(md5(usersObj.CompUserID), function(response) {
-                    if (response.Result === "T") {
-                        // Alias设置成功
-                    } else {
-                        // 极光推送别名设置失败
-                        // 目前不知道改做什么操作 😢
-                        // Alias设置失败
-                        //                        console.log('Alias设置失败--------------------------' + response.Description.code);
-                    }
-                    setJumpPage(); //页面跳转
-                });
-            }, 1500);
-        }
-
     } else {
         /**
          * oauth2.0 授权回调 ,获取当前微信登陆 对应的用户平台角色信息

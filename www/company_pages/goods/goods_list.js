@@ -230,8 +230,9 @@ function getDate() {
 		logged = true;
 		if (getUrlParameter("compid") != usersObj.CompID) {
 			$('#tabs').remove();
+		} else {
+			$("#CompName").html(usersObj.CompName) //公司名称
 		}
-		$("#CompName").html(usersObj.CompName) //公司名称
 	} else {
 		logged = false;
 		$('#tabs').remove();

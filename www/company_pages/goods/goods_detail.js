@@ -116,7 +116,6 @@ function DataGoodsBind() {
 
 	var datastr = JSON.stringify(DataJson);
 	post('SearchGoodsList', datastr, function (response) {
-		console.log(response);
 		if (response && response.Result == "T" && response.Description == "获取成功") {
 			isInStock = response.ProductList[0].InStock;
 			goodsItem = response.ProductList[0]; //记录商品信息

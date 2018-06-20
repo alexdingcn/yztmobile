@@ -6,11 +6,11 @@
 
 function post(methodName, data, callback) {
 //	console.log('请求Json加密前：'+methodName + ':' + data);
-  var url = 'http://192.168.1.139:44132/MobileService/AppService.asmx/' + methodName;
+// 	var url = 'http://192.168.1.139:44132/MobileService/AppService.asmx/' + methodName;
 //	var url = 'http://116.231.102.11:817//MobileService/AppService.asmx/' + methodName;
 //	var url = 'http://118.178.88.33:971//MobileService/AppService.asmx/' + methodName;
 //	var url = 'http://47.100.16.185:84//MobileService/AppService.asmx/' + methodName;
-//	var url = 'https://www.yibanmed.com/MobileService/AppService.asmx/' + methodName;
+	var url = 'https://www.yibanmed.com/MobileService/AppService.asmx/' + methodName;
 
 	var key = CryptoJS.enc.Utf8.parse("HaiYuSoftOrder18");
 	var iv = CryptoJS.enc.Utf8.parse("1hj^5B6k7o8v&*fR'");

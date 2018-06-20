@@ -14,7 +14,7 @@ window.onload = function() {
 
     $('#login').click(function() {
         $(this).text('正在登陆...');
-        $(this).attr('disabled', true);
+        $(this).attr('disabled', true).addClass("weui-btn_disabled");
 
         var account = document.getElementById('account').value;
         var password = document.getElementById('password').value;
@@ -25,8 +25,6 @@ window.onload = function() {
             IOSKey: ''
         };
         login(loginInfo, function(response) {
-            $('#login').text('登 录');
-            $('#login').attr('disabled', false);
             if (response.Result === "T") {
                 // 展示角色列表
                 //				showRoleList(response.UserList);
@@ -41,6 +39,8 @@ window.onload = function() {
                     }
                 });
             }
+            $('#login').text('登 录');
+            $('#login').attr('disabled', false).removeClass("weui-btn_disabled");
         });
 
     });
@@ -72,6 +72,10 @@ function showRoleList(userList) {
 }
 
 function selectCallback(position, userList) {
+    if (!userList || userList.length <= position) {
+        window.location.href = '../../guide.html';
+        return;
+    }
     //将登陆角色保存到本地
     localStorage.setItem('$login_role', JSON.stringify(userList[position]));
     var wx_OpenID = localStorage.getItem('$wx_openid')

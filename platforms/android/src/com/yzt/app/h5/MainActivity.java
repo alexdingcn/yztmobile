@@ -33,7 +33,7 @@ public class MainActivity extends CordovaActivity
     {
         super.onCreate(savedInstanceState);
         // Bugly appid 可替换
-        Bugly.init(getApplicationContext(), "0ddd5689ff", false);
+        Bugly.init(getApplicationContext(), "2131d41a88", true);
         // enable Cordova apps to be started in the background
         Bundle extras = getIntent().getExtras();
         if (extras != null && extras.getBoolean("cdvStartInBackground", false)) {

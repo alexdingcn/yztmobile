@@ -41,7 +41,7 @@ function Bind() {
 		UserID: usersObj.UserID // usersObj.UserID//用户ID
 	});
 	post('GetResellerDetail', datastr, function(response) {
-		if(response.Result == "T") {
+		if(response.Result == "T" && response.Description == "获取成功") {
 			//基本信息
 			$("#ResellerCode").html(response.Reseller.ResellerCode); //编码
 			$("#ResellerName").html(response.Reseller.ResellerName); //名称
@@ -52,10 +52,9 @@ function Bind() {
 			$("#Tel").html(response.Reseller.Tel); //电话
 			$("#Fax").html(response.Reseller.Fax); //传真
 			$("#Principal").html(response.Reseller.Principal); //联系人
-			$("#Phone").html(response.Reseller.Phone); //手机
+			$("#Phone").html(response.Reseller.Phone).attr("href", "tel://" + response.Reseller.Phone); //手机
 			//发票信息
 			if(response.Reseller.InvoceList.length > 0) {
-
 				$("#InvoceType").html(response.Reseller.InvoceList[0].InvoceType); //发票类型
 				$("#Content").html(response.Reseller.InvoceList[0].Content); //发票抬头
 				$("#Rise").html(response.Reseller.InvoceList[0].Rise); //发票内容
@@ -66,7 +65,29 @@ function Bind() {
 			//登录信息
 			$("#UserName").html(response.Reseller.Account.UserName); //登录账号
 			$("#TrueName").html(response.Reseller.Account.TrueName); //姓名
-			$("#Phonelogin").html(response.Reseller.Account.Phone); //手机
+			$("#Phonelogin").html(response.Reseller.Account.Phone).attr("href", "tel://" + response.Reseller.Account.Phone); //手机
+
+			var FCMaterialList = response.Reseller.FCMaterialList;
+			if (FCMaterialList && FCMaterialList.length > 0) {
+				$("#fc-title").show();
+				var content = "";
+				for (var idx=0; idx < FCMaterialList.length; idx++) {
+					content += "<a class=\"weui-cell weui-cell_access\" href=\"" + FCMaterialList[idx].fileUrl + "\">";
+					content += "<div class=\"weui-cell__bd\">" + FCMaterialList[idx].category + "</div>";
+					content += "<div class=\"weui-cell__ft\" style=\"font-size:0\">"
+					if (FCMaterialList[idx].dateDiff > 0 && FCMaterialList[idx].dateDiff < 30) {
+						content += "<span class=\"weui-badge weui-badge_dot\" style=\"margin-left: 5px;margin-right: 5px;\">";
+						content += FCMaterialList[idx].dateDiff + "天后过期";
+						content += "</span>";
+					} else if (FCMaterialList[idx].dateDiff < 0) {
+						content += "<span class=\"weui-badge weui-badge_dot\" style=\"margin-left: 5px;margin-right: 5px;\">";
+						content += "过期" + -FCMaterialList[idx].dateDiff + "天";
+						content += "</span>";
+					}
+					content += "</div></a>";
+				}
+				$("#materialList").html(content);
+			}
 		}
 	})
 }
